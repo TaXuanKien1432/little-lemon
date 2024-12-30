@@ -10,29 +10,29 @@ const Footer = () => {
         </div>
         <div className="grid-container">
             <div>
-                <div>Doormat</div>
-                <div>Navigation</div>
-                </div>
-            <p>Contact</p>
-            <p>Social Media Links</p>
+                <div className="footerheader">Doormat</div>
+                <div className="footerheader">Navigation</div>
+            </div>
+            <p className="footerheader">Contact</p>
+            <p className="footerheader">Social Media Links</p>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="link">Home</Link>
                 </li>
                 <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/about" className="link">About</Link>
                 </li>
                 <li>
-                    <Link to="/cart">Cart</Link>
+                    <Link to="/cart" className="link">Cart</Link>
                 </li>
                 <li>
-                    <Link to="/order-online">Order Online</Link>
+                    <Link to="/order-online" className="link">Order Online</Link>
                 </li>
                 <li>
-                    <Link to="/reservations">Reservations</Link>
+                    <Link to="/reservations" className="link">Reservations</Link>
                 </li>
                 <li>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login" className="link">Login</Link>
                 </li>
             </ul>
             <ul>
@@ -41,9 +41,9 @@ const Footer = () => {
                 <li><a href="/">Email</a></li>
             </ul>
             <ul>
-                <li><a href="/">Facebook</a></li>
-                <li><a href="/">Instagram</a></li>
-                <li><a href="/">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.instagram.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/kien-ta-xuan-566196205/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
         </div>
 

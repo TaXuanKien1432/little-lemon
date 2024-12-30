@@ -21,15 +21,16 @@
     gap: 50px;
     align-items: center;
 }
-/* header */
 
-
-/* main */
+.nav ul li {
+    font-family: "Markazi Text", serif;
+    font-size: 20px;
+}
 
 
 /* footer */
 .footer {
-    padding: 10px 350px;
+    padding: 10px 200px;
     display: flex;
     min-height: fit-content;
     height: 250px;
@@ -41,4 +42,13 @@
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 100px;
 }
+
+.grid-container ul li {
+    font-family: "Markazi Text", serif;
+    font-size: 20px;
+}
+
+
+
