@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Reservations = () => {
+const Reservations = () => {
   return (
     <div>Reservations</div>
   )
 }
+
+export default Reservations

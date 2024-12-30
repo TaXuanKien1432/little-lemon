@@ -25,8 +25,12 @@
 .nav ul li {
     font-family: "Markazi Text", serif;
     font-size: 20px;
+    font-weight: bold;
 }
 
+.link {
+    color: black;
+}
 
 /* footer */
 .footer {
@@ -42,7 +46,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 100px;
+    column-gap: 80px;
 }
 
 .grid-container ul li {
@@ -50,5 +54,13 @@
     font-size: 20px;
 }
 
+.footerheader {
+    color: #495E57;
+    font-family: "Markazi Text", serif;
+    font-weight: bold;
+    font-size: 22px;
+}
 
-
+.grid-container ul li a {
+    color: black;
+}

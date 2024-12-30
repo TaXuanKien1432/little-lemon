@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const OrderOnline = () => {
+const OrderOnline = () => {
   return (
     <div>OrderOnline</div>
   )
 }
+
+export default OrderOnline
