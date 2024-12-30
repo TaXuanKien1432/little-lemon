@@ -9,10 +9,7 @@ const Footer = () => {
             <img src={smallLogo} alt="small-logo" width={100}></img>
         </div>
         <div className="grid-container">
-            <div>
-                <div className="footerheader">Doormat</div>
-                <div className="footerheader">Navigation</div>
-            </div>
+            <p className="footerheader">Doormat Navigation</p>
             <p className="footerheader">Contact</p>
             <p className="footerheader">Social Media Links</p>
             <ul>
@@ -36,9 +33,18 @@ const Footer = () => {
                 </li>
             </ul>
             <ul>
-                <li><a href="/">Address</a></li>
-                <li><a href="/">Phone</a></li>
-                <li><a href="/">Email</a></li>
+                <li>
+                    <div>Address:</div>
+                    <div>123 Town Street, Chicago</div>
+                </li>
+                <li>
+                    <div>Phone:</div>
+                    <div>+00 123 456 789</div>
+                </li>
+                <li>
+                    <div>Email:</div>
+                    <div>little@lemon.com</div>
+                </li>
             </ul>
             <ul>
                 <li><a href="https://www.facebook.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Facebook</a></li>

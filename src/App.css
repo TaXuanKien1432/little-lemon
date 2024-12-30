@@ -37,7 +37,7 @@
     padding: 10px 200px;
     display: flex;
     min-height: fit-content;
-    height: 250px;
+    height: 300px;
     background-color: #FBDABB;
     justify-content: space-between;
     align-items: center;
@@ -52,6 +52,7 @@
 .grid-container ul li {
     font-family: "Markazi Text", serif;
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .footerheader {
