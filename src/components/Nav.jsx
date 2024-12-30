@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../images/Logo .svg'
 import '../App.css'
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
@@ -8,22 +9,22 @@ const Nav = () => {
         <img src={logo} alt="logo"></img>
         <ul>
             <li>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
             </li>
             <li>
-                <a href="/">About</a>
+                <Link to="/about">About</Link>
             </li>
             <li>
-                <a href="/">Menu</a>
+                <Link to="/cart">Cart</Link>
             </li>
             <li>
-                <a href="/">Reservations</a>
+                <Link to="/order-online">Order Online</Link>
             </li>
             <li>
-                <a href="/">Order Online</a>
+                <Link to="/reservations">Reservations</Link>
             </li>
             <li>
-                <a href="/">Login</a>
+                <Link to="/login">Login</Link>
             </li>
         </ul>
     </nav>
