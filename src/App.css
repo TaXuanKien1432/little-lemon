@@ -1,32 +1,25 @@
 * {
     padding: 0;
     margin: 0;
-    border: 0;
-}
-
-/* navigation */
-
-li {
-    list-style-type: none;
-}
-
-a {
+    box-sizing: border-box;
+    list-style: none;
     text-decoration: none;
 }
 
+/* navigation */
 .nav {
-    padding: 10px 350px;
+    padding: 10px 200px;
     display: flex;
     height: 50px;
     background-color: white;
     justify-content: space-between;
+    align-items: center;
 }
 
-.nav > ul {
+.nav ul {
     display: flex;
-    justify-content: space-between;
-    flex-grow: 0.5;
-    padding-top: 18px;
+    gap: 50px;
+    align-items: center;
 }
 /* header */
 
@@ -39,9 +32,10 @@ a {
     padding: 10px 350px;
     display: flex;
     min-height: fit-content;
-    height: 200px;
+    height: 250px;
     background-color: #FBDABB;
     justify-content: space-between;
+    align-items: center;
 }
 
 .grid-container {
