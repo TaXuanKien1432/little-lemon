@@ -1,12 +1,15 @@
 import React from 'react'
 import logo from '../images/Logo .svg'
 import '../App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
     <nav className="nav">
         <img src={logo} alt="logo"></img>
+        <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="menubutton" />
         <ul>
             <li>
                 <Link to="/" className="link">Home</Link>
@@ -27,6 +30,7 @@ const Nav = () => {
                 <Link to="/login" className="link">Login</Link>
             </li>
         </ul>
+        
     </nav>
   )
 }

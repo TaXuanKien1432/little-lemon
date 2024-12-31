@@ -8,8 +8,9 @@
 
 /* navigation */
 .nav {
-    padding: 10px 15%;
+    padding: 10px 10%;
     display: flex;
+    min-height: fit-content;
     height: 50px;
     background-color: white;
     justify-content: space-between;
@@ -24,17 +25,56 @@
 
 .nav ul li {
     font-family: "Markazi Text", serif;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 24px;
 }
 
 .link {
     color: black;
 }
 
+.menubutton {
+    display: none;
+    position: absolute;
+    right: 10%;
+    transform: scale(1.5);
+    top: 22px;
+}
+
+@media screen and (max-width: 1150px) {
+    .nav {
+        padding: 10px 5%;
+    }    
+}
+
+@media screen and (max-width: 1000px) {
+    .menubutton {
+        display: block;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: start;
+        padding: 10px 5%;
+    }
+
+    .nav ul {
+        /* display: none; */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* home */
+.home {
+    height: 1000px;
+    background-color: red;
+}
+
+
 /* footer */
 .footer {
-    padding: 10px 15%;
+    padding: 10px 10%;
     display: flex;
     min-height: fit-content;
     height: 300px;
@@ -67,3 +107,5 @@
     font-family: "Markazi Text", serif;
     font-size: 20px;
 }
+
+
