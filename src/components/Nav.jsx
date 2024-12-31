@@ -1,33 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../images/Logo .svg'
 import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
-  return (
+    const [menuOpen, setMenuOpen] = useState(false);
+    const handleClick = () => setMenuOpen(!menuOpen);
+    return (
     <nav className="nav">
         <img src={logo} alt="logo"></img>
-        <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="menubutton" />
-        <ul>
+        <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="menubutton" onClick={handleClick} />
+        <ul className={menuOpen ? "open" : ""}>
             <li>
-                <Link to="/" className="link">Home</Link>
+                <NavLink to="/">Home</NavLink>
             </li>
             <li>
-                <Link to="/about" className="link">About</Link>
+                <NavLink to="/about">About</NavLink>
             </li>
             <li>
-                <Link to="/cart" className="link">Cart</Link>
+                <NavLink to="/cart">Cart</NavLink>
             </li>
             <li>
-                <Link to="/order-online" className="link">Order Online</Link>
+                <NavLink to="/order-online">Order Online</NavLink>
             </li>
             <li>
-                <Link to="/reservations" className="link">Reservations</Link>
+                <NavLink to="/reservations">Reservations</NavLink>
             </li>
             <li>
-                <Link to="/login" className="link">Login</Link>
+                <NavLink to="/login">Login</NavLink>
             </li>
         </ul>
         

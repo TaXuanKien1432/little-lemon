@@ -23,14 +23,30 @@
     align-items: center;
 }
 
+.nav ul li a {
+    color: black;
+    display: block;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+}
+
 .nav ul li {
     font-family: "Markazi Text", serif;
     font-size: 24px;
+    display: block;
+    height: 50px;
+    align-content: center;
 }
 
-.link {
-    color: black;
+.nav ul li a:hover {
+    text-decoration: underline;
 }
+
+.active {
+    text-decoration: underline;
+}
+
 
 .menubutton {
     display: none;
@@ -38,6 +54,10 @@
     right: 10%;
     transform: scale(1.5);
     top: 22px;
+}
+
+.menubutton:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1150px) {
@@ -58,11 +78,39 @@
     }
 
     .nav ul {
-        /* display: none; */
+        display: none;
         flex-direction: column;
+        width: 100%;
+        position: sticky;
+        margin-top: 10px;
+    }
+
+    .nav ul li {
         width: 100%;
         text-align: center;
     }
+
+    .nav ul li a:hover {
+        text-decoration: none;
+    }
+    
+    .nav ul li a:not(.active):hover {
+        background-color: #fceee1;
+    }
+
+    .active {
+        background-color: #fceee1;
+        text-decoration: none;
+    }
+
+    .active:hover {
+        background-color: #fbe5d0;
+    }
+
+    ul.open {
+        display: block;
+    }
+
 }
 
 /* home */
@@ -108,4 +156,27 @@
     font-size: 20px;
 }
 
+@media screen and (max-width: 1150px) {
+    .footer {
+        padding: 10px 5%;
+    }    
+}
 
+@media screen and (max-width: 1000px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer img {
+        margin-bottom: 30px;
+    }
+    
+    .footersection {
+        display: block;
+        height: fit-content;
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
