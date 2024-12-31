@@ -49,10 +49,21 @@
 
 .footerheader {
     font-family: "Markazi Text", serif;
-    font-size: 22px;
+    font-size: 24px;
     color: #495E57;
 }
 
 .footer div p a {
     color: black;
+    font-family: "Markazi Text", serif;
+    font-size: 20px;
+}
+
+.smallsections {
+    margin-bottom: 10px;
+}
+
+.smallsections p {
+    font-family: "Markazi Text", serif;
+    font-size: 20px;
 }

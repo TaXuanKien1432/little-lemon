@@ -31,15 +31,15 @@ const Footer = () => {
         </div>
         <div className="footersection">
             <h5 className="footerheader">Contact</h5>
-            <div>
+            <div className="smallsections">
                 <p>Address:</p>
                 <p>123 Town Street, Chicago</p>
             </div>
-            <div>
+            <div className="smallsections">
                 <p>Phone:</p>
                 <p>+00 123 456 789</p>
             </div>
-            <div>
+            <div className="smallsections">
                 <p>Email:</p>
                 <p>little@lemon.com</p>
             </div>
