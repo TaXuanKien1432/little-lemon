@@ -8,51 +8,49 @@ const Footer = () => {
         <div>
             <img src={smallLogo} alt="small-logo" width={100}></img>
         </div>
-        <div className="grid-container">
-            <p className="footerheader">Doormat Navigation</p>
-            <p className="footerheader">Contact</p>
-            <p className="footerheader">Social Media Links</p>
-            <ul>
-                <li>
-                    <Link to="/" className="link">Home</Link>
-                </li>
-                <li>
-                    <Link to="/about" className="link">About</Link>
-                </li>
-                <li>
-                    <Link to="/cart" className="link">Cart</Link>
-                </li>
-                <li>
-                    <Link to="/order-online" className="link">Order Online</Link>
-                </li>
-                <li>
-                    <Link to="/reservations" className="link">Reservations</Link>
-                </li>
-                <li>
-                    <Link to="/login" className="link">Login</Link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <div>Address:</div>
-                    <div>123 Town Street, Chicago</div>
-                </li>
-                <li>
-                    <div>Phone:</div>
-                    <div>+00 123 456 789</div>
-                </li>
-                <li>
-                    <div>Email:</div>
-                    <div>little@lemon.com</div>
-                </li>
-            </ul>
-            <ul>
-                <li><a href="https://www.facebook.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                <li><a href="https://www.instagram.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/kien-ta-xuan-566196205/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            </ul>
+        <div className="footersection">
+            <h5 className="footerheader">Important Links</h5>
+            <p>
+                <Link to="/">Home</Link>
+            </p>
+            <p>
+                <Link to="/about">About</Link>
+            </p>
+            <p>
+                <Link to="/cart">Cart</Link>
+            </p>
+            <p>
+                <Link to="/order-online">Order Online</Link>
+            </p>
+            <p>
+                <Link to="/reservations">Reservations</Link>
+            </p>
+            <p>
+                <Link to="/login">Login</Link>
+            </p>
         </div>
-
+        <div className="footersection">
+            <h5 className="footerheader">Contact</h5>
+            <div>
+                <p>Address:</p>
+                <p>123 Town Street, Chicago</p>
+            </div>
+            <div>
+                <p>Phone:</p>
+                <p>+00 123 456 789</p>
+            </div>
+            <div>
+                <p>Email:</p>
+                <p>little@lemon.com</p>
+            </div>
+        </div>
+        <div className="footersection">
+            <h5 className="footerheader">Social Media Links</h5>
+            <p><a href="https://www.facebook.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+            <p><a href="https://www.instagram.com/shxxkien1432/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+            <p><a href="https://www.linkedin.com/in/kien-ta-xuan-566196205/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </div>
+            
     </footer>
   )
 }
