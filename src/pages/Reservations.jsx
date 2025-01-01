@@ -2,7 +2,7 @@ import React from 'react'
 
 const Reservations = () => {
   return (
-    <div>Reservations</div>
+    <div className="page reservations">Reservations</div>
   )
 }
 
