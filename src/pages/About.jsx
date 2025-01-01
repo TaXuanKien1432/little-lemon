@@ -3,7 +3,9 @@ import AboutComponent from '../components/AboutComponent'
 
 const About = () => {
   return (
-    <AboutComponent />
+    <div className="page">
+      <AboutComponent />
+    </div>
   )
 }
 
