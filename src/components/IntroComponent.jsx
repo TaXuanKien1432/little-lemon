@@ -1,7 +1,7 @@
 import React from 'react'
 import restaurantFood from '../images/restaurantfood.jpg'
 import croppedRestaurantFood from '../images/cropped-Restaurantfood.jpg'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const IntroComponent = () => {
   return (
     <div className="intro-section">
@@ -10,7 +10,7 @@ const IntroComponent = () => {
             <p className="display-title">Little Lemon</p>
             <p className="sub-title">Chicago</p>
             <p className="description">We are a family owned mediterranean restaurant, focused on traditional recipes served with a modern twist. </p>
-            <div id="booking-button"><NavLink to="/reservations">Reserve Table</NavLink></div>
+            <Link to="/reservations"><div id="booking-button">Reserve Table</div></Link>
           </div>
           <img className="big" src={restaurantFood} alt="A picture of Little Lemon's food"></img>
           <img className="small" src={croppedRestaurantFood} alt="A picture of Little Lemon's food"></img>
