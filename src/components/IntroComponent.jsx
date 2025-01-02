@@ -10,7 +10,7 @@ const IntroComponent = () => {
             <p className="display-title">Little Lemon</p>
             <p className="sub-title">Chicago</p>
             <p className="description">We are a family owned mediterranean restaurant, focused on traditional recipes served with a modern twist. </p>
-            <Link to="/reservations"><div id="booking-button">Reserve Table</div></Link>
+            <Link to="/reservations" id="booking-button">Reserve Table</Link>
           </div>
           <img className="big" src={restaurantFood} alt="A picture of Little Lemon's food"></img>
           <img className="small" src={croppedRestaurantFood} alt="A picture of Little Lemon's food"></img>

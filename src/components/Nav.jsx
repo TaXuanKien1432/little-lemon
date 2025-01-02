@@ -12,7 +12,7 @@ const Nav = () => {
         <div className="nav-section">
             <nav className="nav">
                 <img src={logo} alt="logo"></img>
-                <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="menubutton" onClick={handleClick} />
+                <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="hamburger-button" onClick={handleClick} />
                 <ul className={menuOpen ? "open" : ""}>
                     <li>
                         <NavLink to="/">Home</NavLink>
