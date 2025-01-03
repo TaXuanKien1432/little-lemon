@@ -193,7 +193,8 @@
 }
 
 .specials-section {
-    min-height: fit-content;
+    height: fit-content;
+    width: 100%;
     padding: 80px 10%;
 }
 
@@ -220,16 +221,98 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .specials-title {
     font-size: 50pt;
 }
 
+.specials-content {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1%;
+}
+
+.card-container {
+    min-height: fit-content;
+    height: 470px;
+    width: 300px;
+    background-color:#9fb3ad;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.img-container {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.description-container {
+    width: 90%;
+    margin: 10px 5%;
+}
+
+.flex-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-button {
+    display: block;
+    font-size: 12pt;
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    background-color: #F4CE14;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+}
+
+.card-button:active {
+    transform: scale(0.9);
+}
+
+.card-title, .card-description, .card-cost {
+    font-size: 18pt;
+}
+
+.card-description {
+    display: block;
+    width: 100%;
+    height: 150px;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;
         height: fit-content;
+    }
+
+    .specials-section {
+        padding-top: 20px;
     }
 }
 
@@ -240,6 +323,37 @@
     
     .specials-section {
         padding: 20px 5%;
+    }
+
+    .card-container {
+        width: 280px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .specials-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .specials-header {
+        display: block;
+    }
+
+    .card-container {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .img-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .flex-card-container {
+        display: block;
     }
 }
 

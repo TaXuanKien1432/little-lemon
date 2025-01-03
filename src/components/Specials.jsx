@@ -19,7 +19,7 @@ const Specials = () => {
                 <p className="specials-title">This week's specials!</p>
                 <Link to="/order-online" className="menu-button">Online Menu</Link>
             </div>
-            <ul>
+            <ul className="specials-content">
                 {foodsData.map((food) => 
                     (<li>
                         <SpecialsCard image={food[0]} title={food[1]} cost={food[2]} description={food[3]} />
