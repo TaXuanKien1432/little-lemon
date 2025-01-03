@@ -12,10 +12,10 @@ const SpecialsCard = ({image, title, cost, description}) => {
           <p className="card-cost">{cost}</p>
         </div>
         <div className="card-description">
-          <p>{description}</p>
+          <section><p>{description}</p></section>
+          <div className="card-button">Add to Cart</div>
         </div>
-      </div>
-      <div className="card-button">Order Now</div>
+      </div>      
     </article>
   )
 }
