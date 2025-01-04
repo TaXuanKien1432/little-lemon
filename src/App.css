@@ -61,9 +61,11 @@
 
 .hamburger-button {
     display: none;
+    width: 20px;
+    height: auto;
     position: absolute;
     right: 5%;
-    top: 22px;
+    top: 19px;
 }
 
 .hamburger-button:hover {
@@ -305,6 +307,53 @@
     scrollbar-width: none;
 }
 
+.ratingCard {
+    min-height: fit-content;
+    height: 325px;
+    width: 200px;
+    justify-items: center;
+    text-align: center;
+    padding: 20px 10px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-container {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.avatar-container img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.flex-testimonials {
+    padding: 40px 10%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.testimonials {
+    background-color: #495E57;
+}
+
+.testimonials > p {
+    display: block;
+    font-size: 45pt;
+    text-align: center;
+    color: white;
+}
+
+.ratingCard p {
+    font-size: 13pt;
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;
@@ -327,6 +376,10 @@
 
     .card-container {
         width: 280px;
+    }
+
+    .flex-testimonials {
+        padding: 40px 5%;
     }
 }
 
@@ -373,6 +426,14 @@
     .card-title, .card-description, .card-cost {
         font-size: 16pt;
     }
+
+    .flex-testimonials {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        row-gap: 20px;
+        column-gap: 20px;
+    }
 }
 
 @media screen and (max-width:700px) {
@@ -391,6 +452,10 @@
 
     .small {
         display: block;
+    }
+
+    .flex-testimonials {
+        grid-template-columns: 1fr;
     }
 }
 
