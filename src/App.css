@@ -300,8 +300,9 @@
 .card-description section {
     display: block;
     width: 100%;
-    min-height: fit-content;
     height: 175px;
+    overflow:scroll;
+    scrollbar-width: none;
 }
 
 @media screen and (max-width:1160px) {
@@ -367,6 +368,10 @@
 
     .flex-card-container {
         display: block;
+    }
+
+    .card-title, .card-description, .card-cost {
+        font-size: 16pt;
     }
 }
 
