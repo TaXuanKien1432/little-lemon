@@ -486,6 +486,45 @@
     transform: scale(0.9);
 }
 
+/* logout */
+.logout-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 10%;
+    height: 500px;
+    width: 100%;
+    background-color: #81a096;
+}
+
+.logout-section img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.logout-section button {
+    display: block;
+    font-size: 30pt;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    background-color: #F4CE14;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+.logout-section button:active {
+    transform: scale(0.9);
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;

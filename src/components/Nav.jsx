@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../images/Logo .svg'
 import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
+import { LogInContext } from '../App'
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const handleClick = () => setMenuOpen(!menuOpen);
+    const {isLoggedIn} = useContext(LogInContext);
     return (
         <div className="nav-section">
             <nav className="nav">
@@ -30,7 +32,9 @@ const Nav = () => {
                         <NavLink to="/reservations">Reservations</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/login">Login</NavLink>
+                        {isLoggedIn ? 
+                        <NavLink to="/logout">Logout</NavLink> : 
+                        <NavLink to="/login">Login</NavLink>}
                     </li>
                 </ul>
             </nav>

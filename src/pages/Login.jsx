@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import FormInput from '../components/FormInput'
+import { LogInContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -11,6 +13,9 @@ const Login = () => {
     email:"",
     password:"",
   });
+
+  const {setIsLoggedIn} = useContext(LogInContext);
+  const navigate = useNavigate();
 
   const validateField = (name, value) => {
     let error = "";
@@ -58,6 +63,8 @@ const Login = () => {
     e.preventDefault();
     if(validate()) {
       window.alert("Logged in successfully");
+      setIsLoggedIn(true);
+      navigate('/');
     } else {
       window.alert("Incorrect email or password. Unable to log in");
     }
