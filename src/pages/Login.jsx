@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import FormInput from '../components/FormInput'
 import { LogInContext } from '../App';
 import { useNavigate } from 'react-router-dom';
+import Popup from '../components/Popup';
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -13,6 +14,8 @@ const Login = () => {
     email:"",
     password:"",
   });
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const {setIsLoggedIn} = useContext(LogInContext);
   const navigate = useNavigate();
@@ -62,13 +65,36 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validate()) {
-      window.alert("Logged in successfully");
-      setIsLoggedIn(true);
-      navigate('/');
+      setIsPopupOpen(true);
+      setTimeout(() => {
+        setIsPopupOpen(false);
+        setIsLoggedIn(true);
+        navigate('/');
+      }, 3000);
     } else {
-      window.alert("Incorrect email or password. Unable to log in");
+      setIsPopupOpen(true);
+      setTimeout(() => {
+        setIsPopupOpen(false);
+      }, 3000);
     }
   };
+
+  let popupContent;
+  if (validate()) {
+    popupContent = (
+      <Popup
+        message="Logged in successfully! Redirecting to Homepage..."
+        onClose={() => setIsPopupOpen(false)}
+      />
+    );
+  } else {
+    popupContent = (
+      <Popup
+        message="Wrong email or password. Please try again."
+        onClose={() => setIsPopupOpen(false)}
+      />
+    );
+  }
 
 
   return (
@@ -83,6 +109,7 @@ const Login = () => {
           {errors.password && <p className="login-error">{errors.password}</p>}
           <button type="submit">Submit</button>
         </form>
+        {isPopupOpen && popupContent}
       </div>
     </div>
   )

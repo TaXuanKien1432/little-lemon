@@ -16,22 +16,22 @@ const Nav = () => {
                 <img src={logo} alt="logo"></img>
                 <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="hamburger-button" onClick={handleClick} />
                 <ul className={menuOpen ? "open" : ""}>
-                    <li>
+                    <li onClick={() => setMenuOpen(false)}>
                         <NavLink to="/">Home</NavLink>
                     </li>
-                    <li>
+                    <li onClick={() => setMenuOpen(false)}>
                         <NavLink to="/about">About</NavLink>
                     </li>
-                    <li>
+                    <li onClick={() => setMenuOpen(false)}>
                         <NavLink to="/cart">Cart</NavLink>
                     </li>
-                    <li>
+                    <li onClick={() => setMenuOpen(false)}>
                         <NavLink to="/order-online">Order Online</NavLink>
                     </li>
-                    <li>
+                    <li onClick={() => setMenuOpen(false)}>
                         <NavLink to="/reservations">Reservations</NavLink>
                     </li>
-                    <li>
+                    <li onClick={() => setMenuOpen(false)}>
                         {isLoggedIn ? 
                         <NavLink to="/logout">Logout</NavLink> : 
                         <NavLink to="/login">Login</NavLink>}
