@@ -1,8 +1,11 @@
 import React from 'react'
+import BookingForm from '../components/BookingForm'
 
 const Reservations = () => {
   return (
-    <div className="page reservations">Reservations</div>
+    <div>
+      <BookingForm />
+    </div>
   )
 }
 

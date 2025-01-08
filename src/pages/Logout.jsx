@@ -10,17 +10,12 @@ const Logout = () => {
     const navigate = useNavigate();
     const handleLogout = () => {
         setIsPopupOpen(true);
-        setTimeout(() => {
-            setIsPopupOpen(false);
-            setIsLoggedIn(false);
-            navigate('/');
-        }, 3000);
     }
     return (
     <div className="logout-section">
         <img src={lemonLogo} alt="user icon"></img>
         <button className="logout-button" onClick={handleLogout}>Log Out</button>
-        {isPopupOpen && <Popup message= "Logged out successfully. Redirecting to Homepage..." onClose={() => setIsPopupOpen(false)} />}
+        {isPopupOpen && <Popup message= "Logged out successfully!" onClose={() => {setIsPopupOpen(false); setIsLoggedIn(false); navigate('/');}} />}
     </div>
   )
 }

@@ -540,8 +540,7 @@
 
 .popup {
     width: 300px;
-    min-height: fit-content;
-    height: 250px;
+    height: fit-content;
     padding: 40px;
     justify-items: center;
     background-color: white;

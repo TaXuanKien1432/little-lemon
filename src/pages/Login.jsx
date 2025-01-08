@@ -64,27 +64,18 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(validate()) {
-      setIsPopupOpen(true);
-      setTimeout(() => {
-        setIsPopupOpen(false);
-        setIsLoggedIn(true);
-        navigate('/');
-      }, 3000);
-    } else {
-      setIsPopupOpen(true);
-      setTimeout(() => {
-        setIsPopupOpen(false);
-      }, 3000);
-    }
+    setIsPopupOpen(true);
   };
 
   let popupContent;
   if (validate()) {
     popupContent = (
       <Popup
-        message="Logged in successfully! Redirecting to Homepage..."
-        onClose={() => setIsPopupOpen(false)}
+        message="Logged in successfully!"
+        onClose={() => {setIsPopupOpen(false);
+                        setIsLoggedIn(true);
+                        navigate('/');
+        }}
       />
     );
   } else {
