@@ -562,6 +562,68 @@
     color: white;
 }
 
+/* reservations */
+.reservations {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 10%;
+    background-color: #495E57;
+    justify-items: center;
+    align-items: center;
+}
+
+.reservations h1 {
+    color: #F4CE14;
+    font-size: 50pt;
+}
+
+.booking-form {
+    width: 700px;
+    justify-items: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.booking-form div {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.booking-form label {
+    font-size: 25pt;
+}
+
+.booking-form input, .booking-form select, .booking-form option {
+    width: 300px;
+    height: 50px;
+    font-size: 20pt;
+    border-radius: 10px;
+}
+
+.booking-form button {
+    display: block;
+    font-size: 20pt;
+    width: 300px;
+    height: 50px;
+    padding: 5px 10px;
+    background-color: #F4CE14;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    border: none;
+}
+
+.booking-form button:active {
+    transform: scale(0.9);
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;

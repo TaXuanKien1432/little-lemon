@@ -3,7 +3,8 @@ import BookingForm from '../components/BookingForm'
 
 const Reservations = () => {
   return (
-    <div>
+    <div className='reservations'>
+      <h1>Reserve a Table</h1>
       <BookingForm />
     </div>
   )
