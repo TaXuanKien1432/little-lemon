@@ -554,11 +554,12 @@
 }
 
 .popup button {
-    background-color: red;
+    background-color: #495E57;
     padding: 10px;
     border: none;
     border-radius: 15px;
     margin-top: 15px;
+    color: white;
 }
 
 @media screen and (max-width:1160px) {

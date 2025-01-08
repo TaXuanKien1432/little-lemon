@@ -7,7 +7,7 @@ const Popup = ({message, onClose}) => {
         <div className="popup" role="alert" aria-live="assertive">
             <p>{message}</p>
             <button onClick={onClose} aria-label="Close popup">
-            Close
+            OK
         </button>
         </div>
     </div>
