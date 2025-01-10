@@ -95,9 +95,9 @@ const Login = () => {
         <p className="login-subtitle">Please enter your email and password!</p>
         <form className="login-form" onSubmit={handleSubmit}>
           <FormInput id="email" label="Email" name="email" type="text" placeholder="Email" value={values.email} onChange={handleChange} />
-          {errors.email && <p className="login-error">{errors.email}</p>}
+          {errors.email && <p className="error">{errors.email}</p>}
           <FormInput id="password" label="Password" name="password" type="password" placeholder="Password" value={values.password} onChange={handleChange} />
-          {errors.password && <p className="login-error">{errors.password}</p>}
+          {errors.password && <p className="error">{errors.password}</p>}
           <button type="submit">Submit</button>
         </form>
         {isPopupOpen && popupContent}
