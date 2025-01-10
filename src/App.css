@@ -659,6 +659,10 @@
     .login-section {
         padding: 40px 5%;
     }
+
+    .reservations {
+        padding: 40px 5%;
+    }
 }
 
 @media screen and (max-width:1000px) {
@@ -723,6 +727,12 @@
     }
 }
 
+@media screen and (max-width: 800px) {
+    .booking-form {
+        width: 80%;
+    }
+}
+
 @media screen and (max-width:700px) {
     .intro-component {
         flex-direction: column;
@@ -758,6 +768,12 @@
     }
 
     .login-component {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .booking-form {
         width: 350px;
     }
 }

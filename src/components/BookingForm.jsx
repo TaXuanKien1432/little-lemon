@@ -18,17 +18,24 @@ const BookingForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setBookingValues({
+            date: "",
+            time: "",
+            guests: "",
+            occasion: "",
+            specialRequests: "",
+        })
     }
   
     return (
     <form className="booking-form" onSubmit={handleSubmit}>
         <div>
             <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" onChange={handleChange} name="date"></input>
+            <input type="date" id="res-date" onChange={handleChange} name="date" value={bookingValues.date}></input>
         </div>
         <div>
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" onChange={handleChange} name="time">
+            <select id="res-time" onChange={handleChange} name="time" value={bookingValues.time}>
                 <option>17:00</option>
                 <option>18:00</option>
                 <option>19:00</option>
@@ -39,7 +46,7 @@ const BookingForm = () => {
         </div>
         <div>
             <label htmlFor="guests">Number of guests</label>
-            <select id="guests" onChange={handleChange} name="guests">
+            <select id="guests" onChange={handleChange} name="guests" value={bookingValues.guests}>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -54,7 +61,7 @@ const BookingForm = () => {
         </div>
         <div>
             <label htmlFor="occasion">Occasion</label>
-            <select id="occasion" onChange={handleChange} name="occasion">
+            <select id="occasion" onChange={handleChange} name="occasion" value={bookingValues.occasion}>
                 <option>No special occasion</option>
                 <option>Birthday</option>
                 <option>Anniversary</option>
@@ -63,7 +70,7 @@ const BookingForm = () => {
         </div>
         <div>
             <label htmlFor='request'>Special Requests</label>
-            <input id='requests' name="specialRequests" onChange={handleChange}></input>
+            <input id='requests' name="specialRequests" onChange={handleChange} value={bookingValues.specialRequests}></input>
         </div>
         <button>Make your reservation</button>
     </form>
