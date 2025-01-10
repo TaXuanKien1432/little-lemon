@@ -16,6 +16,8 @@ const BookingForm = () => {
         guests: "",
     });
 
+    const today = new Date().toISOString().split("T")[0];
+
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const validateField = (name, value) => {
@@ -78,7 +80,7 @@ const BookingForm = () => {
     <form className="booking-form" onSubmit={handleSubmit}>
         <div>
             <label htmlFor="res-date">Choose date <p className="asterisk">*</p></label>
-            <input type="date" id="res-date" onChange={handleChange} name="date" value={bookingValues.date}></input>
+            <input type="date" id="res-date" onChange={handleChange} name="date" value={bookingValues.date} min={today}></input>
             {errors.date && <p className="error">{errors.date}</p>}
         </div>
         <div>
@@ -124,7 +126,7 @@ const BookingForm = () => {
             <label htmlFor='request'>Special Requests</label>
             <input id='requests' name="specialRequests" onChange={handleChange} value={bookingValues.specialRequests}></input>
         </div>
-        <button type="submit" disabled={!validate()}>Make your reservation</button>
+        <button type="submit" aria-label="On Click" disabled={!validate()}>Make your reservation</button>
         {isPopupOpen && <Popup message={"You have successfully made a table reservation!"} onClose={() => setIsPopupOpen(false)}/>}
     </form>
   )
