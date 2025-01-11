@@ -607,6 +607,11 @@
     height: 50px;
     font-size: 20pt;
     border-radius: 10px;
+    padding-left: 10px;
+}
+
+#requests {
+    padding-right: 10px;
 }
 
 .booking-form button {
