@@ -15,7 +15,17 @@ export const LogInContext = createContext();
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [cart, setCart] = useState([]);
 
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find(item => item.id === product.id);
+      if (existingProduct) {
+        return prevCart.map((item) => (item.id === product.id ? {...item, quantity: item.quantity + 1,} : item));
+      }
+      return [...prevCart, {...product, quantity: 1,}]
+    })
+  }
   return (
     <>
       <LogInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
@@ -23,8 +33,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/about" element={<About/>}></Route>
-          <Route path="/cart" element={<Cart/>}></Route>
-          <Route path="/order-online" element={<OrderOnline/>}></Route>
+          <Route path="/cart" element={<Cart cart={cart}/>}></Route>
+          <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}></Route>
           <Route path="/reservations" element={<Reservations/>}></Route>
           {isLoggedIn ? <Route path="/logout" element={<Logout />}></Route> : <Route path="/login" element={<Login/>}></Route>}
         </Routes>
