@@ -535,7 +535,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 100000;
 }
 
 .popup {
@@ -585,7 +585,7 @@
     padding: 40px;
 }
 
-.booking-form div {
+.booking-form > div:not(:last-child) {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
@@ -639,7 +639,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 100000;
 }
 
 .popup {
