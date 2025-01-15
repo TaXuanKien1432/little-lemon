@@ -10,6 +10,12 @@ import Reservations from './pages/Reservations.jsx'
 import Login from './pages/Login.jsx'
 import { createContext, useState } from 'react'
 import Logout from './pages/Logout.jsx'
+import All from './components/All.jsx'
+import Breakfast from './components/Breakfast.jsx'
+import Lunch from './components/Lunch.jsx'
+import Dinner from './components/Dinner.jsx'
+import Dessert from './components/Dessert.jsx'
+import Drink from './components/Drink.jsx'
 
 export const LogInContext = createContext();
 
@@ -34,7 +40,14 @@ function App() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/about" element={<About/>}></Route>
           <Route path="/cart" element={<Cart cart={cart}/>}></Route>
-          <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}></Route>
+          <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}>
+            <Route index element={<All />}></Route>
+            <Route path="breakfast" element={<Breakfast />}></Route>
+            <Route path="lunch" element={<Lunch />}></Route>
+            <Route path="dinner" element={<Dinner />}></Route>
+            <Route path="dessert" element={<Dessert />}></Route>
+            <Route path="drink" element={<Drink />}></Route>
+          </Route>
           <Route path="/reservations" element={<Reservations/>}></Route>
           {isLoggedIn ? <Route path="/logout" element={<Logout />}></Route> : <Route path="/login" element={<Login/>}></Route>}
         </Routes>

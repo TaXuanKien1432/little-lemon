@@ -74,7 +74,6 @@ const BookingForm = () => {
         })
         setIsPopupOpen(true);
     }
-    console.log(bookingValues)
   
     return (
     <form className="booking-form" onSubmit={handleSubmit}>

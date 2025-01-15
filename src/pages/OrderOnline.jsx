@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink, Outlet, Route, Routes } from 'react-router-dom'
 
 import freshLemonPancakes from '../images/freshlemonpancakes.jpg'
 import zestyAvocadoToast from '../images/zestyavocadotoast.png'
@@ -41,19 +42,32 @@ const OrderOnline = ({addToCart}) => {
     {name: "Mediterranean Lemon Lamb Chops", id: 11, image: mediterraneanLemonLambChops, price: 21.99, type: "Dinner", likes: 306},
     {name: "Zesty Creamy Pasta", id: 12, image: zestyCreamyPasta, price: 14.49, type: "Dinner", likes: 245},
     {name: "Classic Lemon Tart", id: 13, image: classicLemonTart, price: 6.99, type: "Dessert", likes: 421},
-    {name: "Lemon Cheesecake with Raspberry Sauce", id: 14, image: lemonCheesecakeWithRaspberrySauce, price: 7.99, likes: 263},
-    {name: "Mini Lemon Meringue Pies", id: 15, image: miniLemonMeringuePies, price: 5.99, likes: 985},
-    {name: "Lemon Sorbet", id: 16, image: lemonSorbet, price: 4.99, likes: 438},
-    {name: "Freshly Squeezed Lemonade", id: 17, image: freshlySqueezedLemonade, price: 3.99, likes: 578},
-    {name: "Lemon Mint Cooler", id: 18, image: lemonMintCooler, price: 4.49, likes: 877},
-    {name: "Lemon Basil Mocktail", id: 19, image: lemonBasilMocktail, price: 5.99, likes: 978},
-    {name: "Lemon Vanilla Milkshake", id: 20, image: lemonVanillaMilkshake, price: 5.49, likes: 655},
-    {name: "Frosty Lemon Smoothie", id: 21, image: frostyLemonSmoothie, price: 5.99, likes: 368}
+    {name: "Lemon Cheesecake with Raspberry Sauce", id: 14, image: lemonCheesecakeWithRaspberrySauce, price: 7.99, type: "Dessert", likes: 263},
+    {name: "Mini Lemon Meringue Pies", id: 15, image: miniLemonMeringuePies, price: 5.99, type: "Dessert", likes: 985},
+    {name: "Lemon Sorbet", id: 16, image: lemonSorbet, price: 4.99, type: "Dessert", likes: 438},
+    {name: "Freshly Squeezed Lemonade", id: 17, image: freshlySqueezedLemonade, price: 3.99, type: "Drink", likes: 578},
+    {name: "Lemon Mint Cooler", id: 18, image: lemonMintCooler, price: 4.49, type: "Drink", likes: 877},
+    {name: "Lemon Basil Mocktail", id: 19, image: lemonBasilMocktail, price: 5.99, type: "Drink", likes: 978},
+    {name: "Lemon Vanilla Milkshake", id: 20, image: lemonVanillaMilkshake, price: 5.49, type: "Drink", likes: 655},
+    {name: "Frosty Lemon Smoothie", id: 21, image: frostyLemonSmoothie, price: 5.99, type: "Drink", likes: 368}
   ]
-  
+  const breakfastProducts = products.filter(product => product.type === "Breakfast");
+  const lunchProducts = products.filter(product => product.type === "Lunch");
+  const dinnerProducts = products.filter(product => product.type === "Dinner");
+  const dessertProducts = products.filter(product => product.type === "Dessert");
+  const drinkProducts = products.filter(product => product.type === "Drink");
+
   return (
     <div>
-      OrderOnline
+      <div className="food-nav-container">
+        <NavLink to="" end>All</NavLink>
+        <NavLink to="breakfast">Breakfast</NavLink>
+        <NavLink to="lunch">Lunch</NavLink>
+        <NavLink to="dinner">Dinner</NavLink>
+        <NavLink to="dessert">Dessert</NavLink>
+        <NavLink to="drink">Drink</NavLink>
+      </div>
+      <Outlet />
     </div>
   )
 }
