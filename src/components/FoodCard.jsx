@@ -1,36 +1,39 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const FoodCard = (props) => {
+import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
+const FoodCard = ({name, image, type, id, price, likes, addToCart}) => {
     const [liked, Setliked] = useState(false);
     const likedContent = (
-        <>
-            <span>{props.likes + 1}</span>
-            <FontAwesomeIcon icon="fa-solid fa-heart" style={{ color: "#ff0000", cursor: "pointer"}} onClick = {() => Setliked(!liked)} />
-        </>
+        <div>
+            <span className="food-likes">{likes + 1}</span>
+            <FontAwesomeIcon icon={faSolidHeart} style={{color: "#ff0000",}} onClick = {() => Setliked(!liked)} />
+        </div>
     )
     const notLikedContent = (
-        <>
-            <span>{props.likes}</span>
-            <FontAwesomeIcon icon="fa-regular fa-heart" style={{color: "#ff0000", cursor: "pointer"}} onClick = {() => Setliked(!liked)}/>
-        </>
+        <div>
+            <span className="food-likes">{likes}</span>
+            <FontAwesomeIcon icon={faRegularHeart} style={{color: "#ff0000",}} onClick = {() => Setliked(!liked)} />
+        </div>
     )
 
     return (
-    <div className="food-card-container">
-        <div className="food-card-img-container">
-            <img src={props.image} alt={props.name}></img>
+    <li className="food-card-container">
+        <div className="food-content-container">
+            <div className="food-card-img-container">
+                <img src={image} alt={name}></img>
+            </div>
+            <div className="food-flex-header">
+                <p className="food-title">{name}</p>
+                {liked ? likedContent : notLikedContent}
+            </div>
+            <p className="food-type">{type}</p>
+            <div className="food-flex-footer">
+                <p className="food-price">$ {price}</p>
+                <div className="food-button" onClick={() => addToCart({name, id, price, image, type})}>Add to Cart</div>
+            </div>
         </div>
-        <div className="food-flex-header">
-            <p className="food-title">{props.name}</p>
-            {liked ? {likedContent} : {notLikedContent}}
-        </div>
-        <p className="food-type">{props.type}</p>
-        <div className="food-flex-footer">
-            <p className="food-price">$ {props.price}</p>
-            <div className="food-button" onClick={props.addToCart}>Add to Cart</div>
-        </div>
-
-    </div>
+    </li>
   )
 }
 

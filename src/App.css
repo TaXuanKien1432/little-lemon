@@ -108,12 +108,12 @@ nav .active {
         background-color: #fceee1;
     }
 
-    .active {
+    nav .active {
         background-color: #fceee1;
         text-decoration: none;
     }
 
-    .active:hover {
+    nav .active:hover {
         background-color: #fbe5d0;
     }
 
@@ -672,6 +672,118 @@ nav .active {
     color: white;
 }
 
+/* menu */
+.order-online-container {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 10%;
+}
+
+.food-nav-container {
+    display: flex;
+    justify-content: left;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.food-nav-container a {
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #F4CE14;
+    border-radius: 25px;
+    text-align: center;
+    color: black;
+    font-size: 20pt;
+}
+
+.food-card-container {
+    width: 290px;
+    height: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #b8dacf;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.food-content-container {
+    height: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.food-card-img-container {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.food-card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.food-flex-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.food-likes {
+    margin-right: 5px;
+    font-size: 18pt;
+}
+
+.food-title {
+    font-size: 18pt;
+    width: 80%;
+    color:#495E57;
+    font-weight: bold;
+}
+
+.food-type {
+    color:rgb(80, 80, 80);
+    font-size: 16pt;
+}
+
+.food-price {
+    font-size: 16pt;
+}
+
+.food-button {
+    display: block;
+    font-size: 14pt;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    background-color: #F4CE14;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.flex-food-container {
+    display: grid;
+    grid-template-columns: repeat(3, 290px);
+    column-gap: calc((100% - (290px * 3)) / 2);
+    row-gap: 30px;
+}
+
+.food-nav-container .active {
+    background-color: rgb(255, 166, 0);
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;
@@ -709,6 +821,10 @@ nav .active {
     }
 
     .reservations {
+        padding: 40px 5%;
+    }
+
+    .order-online-container {
         padding: 40px 5%;
     }
 }
@@ -773,6 +889,11 @@ nav .active {
         justify-self: center;
         margin-top: 50px;
     }
+
+    .flex-food-container {
+        grid-template-columns: repeat(2, 290px);
+        column-gap: calc((100% - (290px * 2)));
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -818,6 +939,14 @@ nav .active {
     .login-component {
         width: 350px;
     }
+
+    .flex-food-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
 }
 
 @media screen and (max-width: 500px) {

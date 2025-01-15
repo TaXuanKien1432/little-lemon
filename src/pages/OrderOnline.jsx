@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import { NavLink, Outlet} from 'react-router-dom'
 
 import freshLemonPancakes from '../images/freshlemonpancakes.jpg'
 import zestyAvocadoToast from '../images/zestyavocadotoast.png'
@@ -38,7 +38,7 @@ const OrderOnline = ({addToCart}) => {
     {name: "Lemon Garlic Shrimp Tacos", id: 7, image: lemonGarlicShrimpTacos, price: 12.99, type: "Lunch", likes: 726},
     {name: "Roasted Vegetable Quinoa Bowl", id: 8, image: roastedVegetableQuinoaBowl, price: 10.99, type: "Lunch", likes: 552},
     {name: "Lemon Butter Salmon", id: 9, image: lemonButterSalmon, price: 18.99, type: "Dinner", likes: 456},
-    {name: "Parmesan-Crusted Chicken with Lemon Cream Sauce", id: 10, image: parmesanCrustedChickenWithLemonCreamSauce, price: 16.99, type: "Dinner", likes: 288},
+    {name: "Parmesan-Crusted Chicken with Lemon Sauce", id: 10, image: parmesanCrustedChickenWithLemonCreamSauce, price: 16.99, type: "Dinner", likes: 288},
     {name: "Mediterranean Lemon Lamb Chops", id: 11, image: mediterraneanLemonLambChops, price: 21.99, type: "Dinner", likes: 306},
     {name: "Zesty Creamy Pasta", id: 12, image: zestyCreamyPasta, price: 14.49, type: "Dinner", likes: 245},
     {name: "Classic Lemon Tart", id: 13, image: classicLemonTart, price: 6.99, type: "Dessert", likes: 421},
@@ -58,7 +58,7 @@ const OrderOnline = ({addToCart}) => {
   const drinkProducts = products.filter(product => product.type === "Drink");
 
   return (
-    <div>
+    <div className="order-online-container">
       <div className="food-nav-container">
         <NavLink to="" end>All</NavLink>
         <NavLink to="breakfast">Breakfast</NavLink>
@@ -67,7 +67,7 @@ const OrderOnline = ({addToCart}) => {
         <NavLink to="dessert">Dessert</NavLink>
         <NavLink to="drink">Drink</NavLink>
       </div>
-      <Outlet />
+      <Outlet context={{ products, breakfastProducts, lunchProducts, dinnerProducts, dessertProducts, drinkProducts, addToCart }}/>
     </div>
   )
 }
