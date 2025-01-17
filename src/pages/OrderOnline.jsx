@@ -5,6 +5,8 @@ import freshLemonPancakes from '../images/freshlemonpancakes.jpg'
 import zestyAvocadoToast from '../images/zestyavocadotoast.png'
 import citrusSmoothie from '../images/citrussmoothie.jpg'
 import lemonSouffleOmelette from '../images/lemonsouffleomelette.webp'
+import greekSalad from '../images/greek salad.jpg'
+import bruchetta from '../images/bruchetta.svg'
 
 import lemonBasilGrilledChickenSandwich from '../images/lemon-basil-grilled-chicken-sandwich.webp'
 import citrusCaesarSalad from '../images/citrus-caesar-salad.jpeg'
@@ -20,6 +22,7 @@ import classicLemonTart from '../images/classic-lemon-tart.jpg'
 import lemonCheesecakeWithRaspberrySauce from '../images/lemon-cheesecake-with-raspberry-sauce.jpg'
 import miniLemonMeringuePies from '../images/mini-lemon-meringue-pies.jpg'
 import lemonSorbet from '../images/lemon-sorbet.jpg'
+import lemonDesert from '../images/desert.jpg'
 
 import freshlySqueezedLemonade from '../images/freshly-squeezed-lemonade.jpg'
 import lemonMintCooler from '../images/lemon-mint-cooler.jpg'
@@ -49,7 +52,10 @@ const OrderOnline = ({addToCart}) => {
     {name: "Lemon Mint Cooler", id: 18, image: lemonMintCooler, price: 4.49, type: "Drink", likes: 877},
     {name: "Lemon Basil Mocktail", id: 19, image: lemonBasilMocktail, price: 5.99, type: "Drink", likes: 978},
     {name: "Lemon Vanilla Milkshake", id: 20, image: lemonVanillaMilkshake, price: 5.49, type: "Drink", likes: 655},
-    {name: "Frosty Lemon Smoothie", id: 21, image: frostyLemonSmoothie, price: 5.99, type: "Drink", likes: 368}
+    {name: "Frosty Lemon Smoothie", id: 21, image: frostyLemonSmoothie, price: 5.99, type: "Drink", likes: 368},
+    {name: "Greek Salad", id: 22, image: greekSalad, price: 12.99, type: "Breakfast", likes: 538},
+    {name: "Bruchetta", id: 23, image: bruchetta, price: 5.99, type: "Breakfast", likes: 456},
+    {name: "Lemon Dessert", id: 24, image: lemonDesert, price: 5.00, type: "Dessert", likes: 201},
   ]
   const breakfastProducts = products.filter(product => product.type === "Breakfast");
   const lunchProducts = products.filter(product => product.type === "Lunch");

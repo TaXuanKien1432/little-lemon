@@ -39,8 +39,8 @@ const Specials = ({addToCart}) => {
             </div>
             <ul className="specials-content">
                 {foodsData.map((food) => 
-                    (<li>
-                        <SpecialsCard image={food.image} key={food.id} id={food.id} name={food.name} price={food.price} type={food.type} description={food.description} addToCart={addToCart} />
+                    (<li key={food.id}>
+                        <SpecialsCard image={food.image} id={food.id} name={food.name} price={food.price} type={food.type} description={food.description} addToCart={addToCart} />
                     </li>)
                 )}
             </ul>
