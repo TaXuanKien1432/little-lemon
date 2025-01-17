@@ -679,6 +679,14 @@ nav .active {
     padding: 40px 10%;
 }
 
+.order-online-container > p:first-child {
+    display: block;
+    font-size: 40pt;
+    margin-bottom: 20px;
+    color:#495E57;
+    font-weight: bold;
+}
+
 .food-nav-container {
     display: flex;
     justify-content: left;

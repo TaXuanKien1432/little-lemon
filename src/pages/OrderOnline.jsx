@@ -41,7 +41,7 @@ const OrderOnline = ({addToCart}) => {
     {name: "Lemon Garlic Shrimp Tacos", id: 7, image: lemonGarlicShrimpTacos, price: 12.99, type: "Lunch", likes: 726},
     {name: "Roasted Vegetable Quinoa Bowl", id: 8, image: roastedVegetableQuinoaBowl, price: 10.99, type: "Lunch", likes: 552},
     {name: "Lemon Butter Salmon", id: 9, image: lemonButterSalmon, price: 18.99, type: "Dinner", likes: 456},
-    {name: "Parmesan-Crusted Chicken with Lemon Sauce", id: 10, image: parmesanCrustedChickenWithLemonCreamSauce, price: 16.99, type: "Dinner", likes: 288},
+    {name: "Parmesan-Crusted Lemon Chicken", id: 10, image: parmesanCrustedChickenWithLemonCreamSauce, price: 16.99, type: "Dinner", likes: 288},
     {name: "Mediterranean Lemon Lamb Chops", id: 11, image: mediterraneanLemonLambChops, price: 21.99, type: "Dinner", likes: 306},
     {name: "Zesty Creamy Pasta", id: 12, image: zestyCreamyPasta, price: 14.49, type: "Dinner", likes: 245},
     {name: "Classic Lemon Tart", id: 13, image: classicLemonTart, price: 6.99, type: "Dessert", likes: 421},
@@ -56,7 +56,15 @@ const OrderOnline = ({addToCart}) => {
     {name: "Greek Salad", id: 22, image: greekSalad, price: 12.99, type: "Breakfast", likes: 538},
     {name: "Bruchetta", id: 23, image: bruchetta, price: 5.99, type: "Breakfast", likes: 456},
     {name: "Lemon Dessert", id: 24, image: lemonDesert, price: 5.00, type: "Dessert", likes: 201},
-  ]
+  ].sort(function (a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
   const breakfastProducts = products.filter(product => product.type === "Breakfast");
   const lunchProducts = products.filter(product => product.type === "Lunch");
   const dinnerProducts = products.filter(product => product.type === "Dinner");
@@ -65,6 +73,7 @@ const OrderOnline = ({addToCart}) => {
 
   return (
     <div className="order-online-container">
+      <p>Menu</p>
       <div className="food-nav-container">
         <NavLink to="" end>All</NavLink>
         <NavLink to="breakfast">Breakfast</NavLink>
