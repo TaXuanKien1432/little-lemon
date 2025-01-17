@@ -693,7 +693,7 @@ nav .active {
     height: fit-content;
     width: fit-content;
     padding: 10px 20px;
-    background-color: #F4CE14;
+    background-color: #e5e4e4;
     border-radius: 25px;
     text-align: center;
     color: black;
@@ -781,7 +781,8 @@ nav .active {
 }
 
 .food-nav-container .active {
-    background-color: rgb(255, 166, 0);
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
 @media screen and (max-width:1160px) {
@@ -891,9 +892,24 @@ nav .active {
     }
 
     .flex-food-container {
-        grid-template-columns: repeat(2, 290px);
-        column-gap: calc((100% - (290px * 2)));
+        grid-template-columns: repeat(2, 360px);
+        column-gap: calc((100% - (360px * 2)));
     }
+
+    .food-card-container {
+        width: 360px;
+    }    
+}
+
+@media screen and (max-width: 850px) {
+    .food-card-container {
+        width: 300px;
+    }
+
+    .flex-food-container {
+        grid-template-columns: repeat(2, 300px);
+        column-gap: calc((100% - (300px * 2)));
+    }    
 }
 
 @media screen and (max-width: 800px) {
@@ -945,8 +961,14 @@ nav .active {
         flex-direction: column;
         align-items: center;
     }
+    .food-card-container {
+        width: 330px;
+    }
 
-
+    .flex-food-container {
+        grid-template-columns: repeat(2, 330px);
+        column-gap: calc((100% - (330px * 2)));
+    }    
 }
 
 @media screen and (max-width: 500px) {
