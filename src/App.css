@@ -244,7 +244,7 @@ nav .active {
     width: 300px;
     background-color:#9fb3ad;
     border-radius: 15px;
-    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 
 .img-container {
@@ -705,7 +705,7 @@ nav .active {
     height: 400px;
     padding: 10px;
     border-radius: 10px;
-    background-color: #b8dacf;
+    background-color: white;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 

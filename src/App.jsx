@@ -37,7 +37,7 @@ function App() {
       <LogInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
         <Nav></Nav>
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
+          <Route path="/" element={<Home addToCart={addToCart}/>}></Route>
           <Route path="/about" element={<About/>}></Route>
           <Route path="/cart" element={<Cart cart={cart}/>}></Route>
           <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}>

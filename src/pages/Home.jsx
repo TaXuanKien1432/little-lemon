@@ -4,11 +4,11 @@ import Specials from '../components/Specials'
 import Testimonials from '../components/Testimonials'
 import AboutComponent from '../components/AboutComponent'
 
-const Home = () => {
+const Home = ({addToCart}) => {
   return (
     <div className="page home">
       <IntroComponent />
-      <Specials />
+      <Specials addToCart={addToCart}/>
       <Testimonials />
       <AboutComponent />
     </div>
