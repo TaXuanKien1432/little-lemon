@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, Outlet} from 'react-router-dom'
+import { NavLink, Outlet, useLocation} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
@@ -74,8 +74,31 @@ const OrderOnline = ({addToCart}) => {
   const drinkProducts = products.filter(product => product.type === "Drink");
 
   const [query, setQuery] = useState("");
-  const search = () => {
-    
+  const location = useLocation();
+  let [searchedProducts, setSearchedProducts] = useState([]);
+  const search = (e) => {
+    switch (location.pathname) {
+      case "order-online":
+        setSearchedProducts(products);
+        break;
+      case "order-online/breakfast":
+        setSearchedProducts(breakfastProducts);
+        break;
+      case "order-online/lunch":
+        setSearchedProducts(lunchProducts);
+        break;
+      case "order-online/dinner":
+        setSearchedProducts(dinnerProducts);
+        break;
+      case "order-online/dessert":
+        setSearchedProducts(dessertProducts);
+        break;
+      case "order-online/drink":
+        setSearchedProducts(drinkProducts);
+        break;
+    }
+    setQuery(e.target.value);
+    setSearchedProducts(prevArray => prevArray.filter(item => item.name.toLowerCase().includes(query.toLowerCase().trim())));
   }
 
   return (
@@ -83,7 +106,7 @@ const OrderOnline = ({addToCart}) => {
       <p>Menu</p>
       <form>
         <input></input>
-        <button className="search-button"><FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#ffffff",}} /></button>
+        <button className="search-button" onSubmit={(e) => search(e)}><FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#ffffff",}} /></button>
       </form>
       <div className="food-nav-container">
         <NavLink to="" end>All</NavLink>
@@ -93,7 +116,7 @@ const OrderOnline = ({addToCart}) => {
         <NavLink to="dessert">Dessert</NavLink>
         <NavLink to="drink">Drink</NavLink>
       </div>
-      <Outlet context={{ products, breakfastProducts, lunchProducts, dinnerProducts, dessertProducts, drinkProducts, addToCart }}/>
+      <Outlet context={{ products, breakfastProducts, lunchProducts, dinnerProducts, dessertProducts, drinkProducts, addToCart, searchedProducts }}/>
     </div>
   )
 }

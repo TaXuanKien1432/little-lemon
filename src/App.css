@@ -692,7 +692,7 @@ nav .active {
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px #0000003d;
     border-radius: 10px;
 }
 
