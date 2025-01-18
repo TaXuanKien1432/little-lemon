@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, Outlet} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 import freshLemonPancakes from '../images/freshlemonpancakes.jpg'
 import zestyAvocadoToast from '../images/zestyavocadotoast.png'
@@ -71,9 +73,18 @@ const OrderOnline = ({addToCart}) => {
   const dessertProducts = products.filter(product => product.type === "Dessert");
   const drinkProducts = products.filter(product => product.type === "Drink");
 
+  const [query, setQuery] = useState("");
+  const search = () => {
+    
+  }
+
   return (
     <div className="order-online-container">
       <p>Menu</p>
+      <form>
+        <input></input>
+        <button className="search-button"><FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#ffffff",}} /></button>
+      </form>
       <div className="food-nav-container">
         <NavLink to="" end>All</NavLink>
         <NavLink to="breakfast">Breakfast</NavLink>
