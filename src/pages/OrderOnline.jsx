@@ -76,37 +76,39 @@ const OrderOnline = ({addToCart}) => {
   const [query, setQuery] = useState("");
   const location = useLocation();
   let [searchedProducts, setSearchedProducts] = useState([]);
-  const search = (e) => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     switch (location.pathname) {
-      case "order-online":
+      case "/order-online":
         setSearchedProducts(products);
         break;
-      case "order-online/breakfast":
+      case "/order-online/breakfast":
         setSearchedProducts(breakfastProducts);
         break;
-      case "order-online/lunch":
+      case "/order-online/lunch":
         setSearchedProducts(lunchProducts);
         break;
-      case "order-online/dinner":
+      case "/order-online/dinner":
         setSearchedProducts(dinnerProducts);
         break;
-      case "order-online/dessert":
+      case "/order-online/dessert":
         setSearchedProducts(dessertProducts);
         break;
-      case "order-online/drink":
+      case "/order-online/drink":
         setSearchedProducts(drinkProducts);
         break;
     }
-    setQuery(e.target.value);
-    setSearchedProducts(prevArray => prevArray.filter(item => item.name.toLowerCase().includes(query.toLowerCase().trim())));
+    let value = e.target.value.toLowerCase();
+    setQuery(value);
+    setSearchedProducts(prevArray => prevArray.filter(item => item.name.toLowerCase().includes(value)));
   }
 
   return (
     <div className="order-online-container">
       <p>Menu</p>
       <form>
-        <input></input>
-        <button className="search-button" onSubmit={(e) => search(e)}><FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#ffffff",}} /></button>
+        <input onChange={(e) => handleSearch(e)} placeholder='Search...'></input>
+        <div className="search-button"><FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} style={{color: "#ffffff",}} /></div>
       </form>
       <div className="food-nav-container">
         <NavLink to="" end>All</NavLink>
@@ -116,7 +118,7 @@ const OrderOnline = ({addToCart}) => {
         <NavLink to="dessert">Dessert</NavLink>
         <NavLink to="drink">Drink</NavLink>
       </div>
-      <Outlet context={{ products, breakfastProducts, lunchProducts, dinnerProducts, dessertProducts, drinkProducts, addToCart, searchedProducts }}/>
+      <Outlet context={{ products, breakfastProducts, lunchProducts, dinnerProducts, dessertProducts, drinkProducts, addToCart, searchedProducts, query }}/>
     </div>
   )
 }
