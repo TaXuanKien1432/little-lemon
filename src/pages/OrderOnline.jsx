@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -75,32 +75,53 @@ const OrderOnline = ({addToCart}) => {
 
   const [query, setQuery] = useState("");
   const location = useLocation();
-  let [searchedProducts, setSearchedProducts] = useState([]);
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const [searchedProducts, setSearchedProducts] = useState([]);
+  useEffect(() => {
     switch (location.pathname) {
       case "/order-online":
-        setSearchedProducts(products);
+        setSearchedProducts(products.filter(item => item.name.toLowerCase().includes(query)));
         break;
       case "/order-online/breakfast":
-        setSearchedProducts(breakfastProducts);
+        setSearchedProducts(breakfastProducts.filter(item => item.name.toLowerCase().includes(query)));
         break;
       case "/order-online/lunch":
-        setSearchedProducts(lunchProducts);
+        setSearchedProducts(lunchProducts.filter(item => item.name.toLowerCase().includes(query)));
         break;
       case "/order-online/dinner":
-        setSearchedProducts(dinnerProducts);
+        setSearchedProducts(dinnerProducts.filter(item => item.name.toLowerCase().includes(query)));
         break;
       case "/order-online/dessert":
-        setSearchedProducts(dessertProducts);
+        setSearchedProducts(dessertProducts.filter(item => item.name.toLowerCase().includes(query)));
         break;
       case "/order-online/drink":
-        setSearchedProducts(drinkProducts);
+        setSearchedProducts(drinkProducts.filter(item => item.name.toLowerCase().includes(query)));
         break;
     }
+  }, [location.pathname]);
+  const handleSearch = (e) => {
+    e.preventDefault();
     let value = e.target.value.toLowerCase();
     setQuery(value);
-    setSearchedProducts(prevArray => prevArray.filter(item => item.name.toLowerCase().includes(value)));
+    switch (location.pathname) {
+      case "/order-online":
+        setSearchedProducts(products.filter(item => item.name.toLowerCase().includes(value)));
+        break;
+      case "/order-online/breakfast":
+        setSearchedProducts(breakfastProducts.filter(item => item.name.toLowerCase().includes(value)));
+        break;
+      case "/order-online/lunch":
+        setSearchedProducts(lunchProducts.filter(item => item.name.toLowerCase().includes(value)));
+        break;
+      case "/order-online/dinner":
+        setSearchedProducts(dinnerProducts.filter(item => item.name.toLowerCase().includes(value)));
+        break;
+      case "/order-online/dessert":
+        setSearchedProducts(dessertProducts.filter(item => item.name.toLowerCase().includes(value)));
+        break;
+      case "/order-online/drink":
+        setSearchedProducts(drinkProducts.filter(item => item.name.toLowerCase().includes(value)));
+        break;
+    }
   }
 
   return (
