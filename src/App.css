@@ -861,6 +861,13 @@ nav .active {
     transform: scale(0.9);
 }
 
+.foods-not-found {
+    width: 100%;
+    font-size: 40pt;
+    color:#545454;
+    text-align: center;
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;

@@ -7,7 +7,7 @@ const Dessert = () => {
   let displayContext;
   if (searchedProducts.length === 0 && query) {
     displayContext = (
-      <div>Foods not found</div>
+      <div className="foods-not-found">Foods not found</div>
     )
   } else if (searchedProducts.length === 0 && !query.trim()) {
     displayContext = (
