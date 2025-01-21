@@ -14,12 +14,7 @@ const Dinner = () => {
       <ul className="flex-food-container">
         {dinnerProducts.map((product) => 
         <FoodCard 
-        name={product.name} 
-        image={product.image} 
-        key={product.id} 
-        type={product.type} 
-        likes={product.likes} 
-        price={product.price} 
+        product={product} 
         addToCart={addToCart}/>)}
       </ul>
     )
@@ -28,12 +23,7 @@ const Dinner = () => {
       <ul className="flex-food-container">
         {searchedProducts.map((product) => 
         <FoodCard 
-        name={product.name} 
-        image={product.image} 
-        key={product.id} 
-        type={product.type} 
-        likes={product.likes} 
-        price={product.price} 
+        product={product} 
         addToCart={addToCart}/>)}
       </ul>
     )

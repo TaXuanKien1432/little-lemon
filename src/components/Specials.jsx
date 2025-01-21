@@ -40,7 +40,7 @@ const Specials = ({addToCart}) => {
             <ul className="specials-content">
                 {foodsData.map((food) => 
                     (<li key={food.id}>
-                        <SpecialsCard image={food.image} id={food.id} name={food.name} price={food.price} type={food.type} description={food.description} addToCart={addToCart} />
+                        <SpecialsCard food={food} addToCart={addToCart} />
                     </li>)
                 )}
             </ul>

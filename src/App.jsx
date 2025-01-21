@@ -32,6 +32,25 @@ function App() {
       return [...prevCart, {...product, quantity: 1,}]
     })
   }
+  const increaseQuantity = (item) => {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
+    );
+  };
+  
+  const decreaseQuantity = (item) => {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem
+      )
+    );
+  };
   return (
     <>
       <LogInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
@@ -39,7 +58,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart}/>}></Route>
           <Route path="/about" element={<About/>}></Route>
-          <Route path="/cart" element={<Cart cart={cart}/>}></Route>
+          <Route path="/cart" element={<Cart cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>}></Route>
           <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}>
             <Route index element={<All />}></Route>
             <Route path="breakfast" element={<Breakfast />}></Route>

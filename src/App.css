@@ -821,6 +821,14 @@ nav .active {
     left: 0;
 }
 
+.food-button:hover {
+    transform:scale(1.05);
+}
+
+.food-button:active {
+    transform:scale(0.9);
+}
+
 .flex-food-container {
     display: grid;
     grid-template-columns: repeat(3, 290px);
@@ -834,7 +842,7 @@ nav .active {
 }
 
 .empty-cart {
-    padding: 100px 10%;
+    padding: 150px 10%;
     justify-items: center;
 }
 
