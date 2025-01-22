@@ -959,13 +959,8 @@ nav .active {
 }
 
 .cart-item-name {
-    display: -webkit-box;
     max-height: 80px;
-    -webkit-text-decoration: none;
     text-overflow: ellipsis;
-    word-break: break-all;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
     overflow: hidden;
 }
 
@@ -1119,6 +1114,7 @@ nav .active {
 
     .cart-item-name {
         max-height: 50px;
+        white-space: nowrap;
     }
 
     .quantity-button {
@@ -1192,6 +1188,12 @@ nav .active {
         grid-template-columns: repeat(2, 330px);
         column-gap: calc((100% - (330px * 2)));
     }    
+}
+
+@media screen and (max-width: 670px) {
+    .cart-item-name {
+        max-width: 110px;
+    }
 }
 
 @media screen and (max-width: 500px) {
