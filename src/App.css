@@ -901,12 +901,17 @@ nav .active {
 .cart-item > div:first-child {
     display: flex;
     gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding-right: 15px;
 }
 
 .cart-item-img-container {
     height: 80px;
     width: 80px;
     overflow: hidden;
+    min-height: 80px;
+    min-width: 80px;
 }
 
 .cart-item-img-container img {
@@ -915,12 +920,19 @@ nav .active {
     object-fit: cover;
 }
 
+.full-cart-title {
+    font-size: 40pt;
+    color:#495E57;
+}
+
 .quantity-button {
     display: flex;
     font-size: 20pt;
     border-radius: 10px;
     width: fit-content;
+    height: fit-content;
     border: 0.5px rgb(182, 182, 182) solid;
+    align-self: center;
 }
 
 .quantity-button button {
@@ -941,17 +953,20 @@ nav .active {
 }
 
 .quantity-button div {
-    width: 25px;
+    width: 30px;
+    min-width: fit-content;
     text-align: center;
 }
 
-.cart-item > div:last-child > div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    width: fit-content;
-    align-items: center;
+.cart-item-name {
+    display: -webkit-box;
+    max-height: 80px;
+    -webkit-text-decoration: none;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 @media screen and (max-width:1160px) {
@@ -1082,7 +1097,42 @@ nav .active {
     .flex-food-container {
         grid-template-columns: repeat(2, 300px);
         column-gap: calc((100% - (300px * 2)));
-    }    
+    }
+    
+    .grid-cart-title {
+        grid-template-columns: 3fr 1fr 1fr;
+        font-size: 15pt;
+    }
+    
+    .cart-item {
+        height: 70px;
+        font-size: 15pt;
+        grid-template-columns: 3fr 1fr 1fr;
+    }
+
+    .cart-item-img-container {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .cart-item-name {
+        max-height: 50px;
+    }
+
+    .quantity-button {
+        font-size: 15pt;
+    }
+
+    .quantity-button button {
+        font-size: 15pt;
+        width: 18px;
+    }
+
+    .quantity-button div {
+        width: 20px;
+    }
 }
 
 @media screen and (max-width: 800px) {

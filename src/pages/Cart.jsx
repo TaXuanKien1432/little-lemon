@@ -18,7 +18,7 @@ const Cart = ({cart, increaseQuantity, decreaseQuantity}) => {
       <NavLink to="/order-online"><p>Order food now </p></NavLink>
     </div>
   )
-  console.log(cart);
+  
   return (
     <div className="cart">
       {cart.length > 0 ?
