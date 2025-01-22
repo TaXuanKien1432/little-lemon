@@ -20,11 +20,16 @@ const Cart = ({cart, increaseQuantity, decreaseQuantity}) => {
   )
   console.log(cart);
   return (
-    <div>
+    <div className="cart">
       {cart.length > 0 ?
       <div className="full-cart">
-        <h1 className="full-cart-title">Your Cart</h1>
+        <p className="full-cart-title">Your Cart</p>
         <div className="cart-items-display">
+        <ul className="grid-cart-title">
+          <li>Item</li>
+          <li>Price</li>
+          <li>Quantity</li>
+        </ul>
           <ul>
             {cart.map(item => <li key={item.id}><CartItem item={item} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/></li>)}
           </ul>
