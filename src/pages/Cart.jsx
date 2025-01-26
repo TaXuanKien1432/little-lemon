@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { LogInContext } from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
@@ -7,9 +7,7 @@ import CartItem from '../components/CartItem';
 
 const Cart = ({cart, setCart}) => {
   const {isLoggedIn} = useContext(LogInContext);
-
-  const [totalItems, setTotalItems] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const totalPrice = cart.reduce((sum, item) => sum + item.quantity*item.price, 0).toFixed(2);
 
   const emptyCart = (
     <div className="empty-cart">
@@ -25,14 +23,17 @@ const Cart = ({cart, setCart}) => {
       <div className="full-cart">
         <p className="full-cart-title">Your Cart</p>
         <div className="cart-items-display">
-        <ul className="grid-cart-title">
-          <li>Item</li>
-          <li>Price</li>
-          <li>Quantity</li>
-        </ul>
+          <ul className="grid-cart-title">
+            <li>Item</li>
+            <li>Price</li>
+            <li>Quantity</li>
+          </ul>
           <ul>
             {cart.map(item => <li key={item.id}><CartItem item={item} setCart={setCart}/></li>)}
           </ul>
+        </div>
+        <div>
+          <p>{totalPrice}</p>
         </div>
       </div>
       : emptyCart}

@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import { LogInContext } from '../App'
 
-const Nav = () => {
+const Nav = ({totalItems}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const handleClick = () => setMenuOpen(!menuOpen);
     const {isLoggedIn} = useContext(LogInContext);
@@ -17,24 +17,29 @@ const Nav = () => {
                 <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="hamburger-button" onClick={handleClick} />
                 <ul className={menuOpen ? "open" : ""}>
                     <li onClick={() => setMenuOpen(false)}>
-                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/"><p>Home</p></NavLink>
                     </li>
                     <li onClick={() => setMenuOpen(false)}>
-                        <NavLink to="/about">About</NavLink>
+                        <NavLink to="/about"><p>About</p></NavLink>
                     </li>
                     <li onClick={() => setMenuOpen(false)}>
-                        <NavLink to="/cart">Cart</NavLink>
+                        <NavLink to="/cart">
+                            <div>
+                                <p>Cart</p>
+                                <div className={totalItems == 0 ? "total-items-inactive" : "total-items-active"}>{totalItems}</div>
+                            </div>
+                        </NavLink>
                     </li>
                     <li onClick={() => setMenuOpen(false)}>
-                        <NavLink to="/order-online">Order Online</NavLink>
+                        <NavLink to="/order-online"><p>Order Online</p></NavLink>
                     </li>
                     <li onClick={() => setMenuOpen(false)}>
-                        <NavLink to="/reservations">Reservations</NavLink>
+                        <NavLink to="/reservations"><p>Reservations</p></NavLink>
                     </li>
                     <li onClick={() => setMenuOpen(false)}>
                         {isLoggedIn ? 
-                        <NavLink to="/logout">Logout</NavLink> : 
-                        <NavLink to="/login">Login</NavLink>}
+                        <NavLink to="/logout"><p>Logout</p></NavLink> : 
+                        <NavLink to="/login"><p>Login</p></NavLink>}
                     </li>
                 </ul>
             </nav>

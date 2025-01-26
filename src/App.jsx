@@ -22,7 +22,7 @@ export const LogInContext = createContext();
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cart, setCart] = useState([]);
-
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find(item => item.id === product.id);
@@ -36,7 +36,7 @@ function App() {
   return (
     <>
       <LogInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
-        <Nav></Nav>
+        <Nav totalItems={totalItems}></Nav>
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart}/>}></Route>
           <Route path="/about" element={<About/>}></Route>
