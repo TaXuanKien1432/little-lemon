@@ -5,7 +5,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping
 import { NavLink } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 
-const Cart = ({cart, increaseQuantity, decreaseQuantity}) => {
+const Cart = ({cart, setCart}) => {
   const {isLoggedIn} = useContext(LogInContext);
 
   const [totalItems, setTotalItems] = useState(0);
@@ -31,7 +31,7 @@ const Cart = ({cart, increaseQuantity, decreaseQuantity}) => {
           <li>Quantity</li>
         </ul>
           <ul>
-            {cart.map(item => <li key={item.id}><CartItem item={item} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/></li>)}
+            {cart.map(item => <li key={item.id}><CartItem item={item} setCart={setCart}/></li>)}
           </ul>
         </div>
       </div>

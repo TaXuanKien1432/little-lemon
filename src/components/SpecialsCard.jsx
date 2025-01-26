@@ -9,7 +9,7 @@ const SpecialsCard = ({food, addToCart}) => {
       <div className="description-container">
         <div className="flex-card-container">
           <h1 className="card-title">{food.name}</h1>
-          <p className="card-cost">${food.price}</p>
+          <p className="card-cost">${food.price.toFixed(2)}</p>
         </div>
         <div className="card-description">
           <section><p>{food.description}</p></section>

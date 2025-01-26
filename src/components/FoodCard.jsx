@@ -29,7 +29,7 @@ const FoodCard = ({product, addToCart}) => {
             </div>
             <p className="food-type">{product.type}</p>
             <div className="food-flex-footer">
-                <p className="food-price">$ {product.price}</p>
+                <p className="food-price">$ {product.price.toFixed(2)}</p>
                 <div className="food-button" onClick={() => addToCart(product)}>Add to Cart</div>
             </div>
         </div>
