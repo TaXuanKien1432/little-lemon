@@ -26,20 +26,20 @@ const CartItem = ({item, setCart}) => {
       )
     );
   };
-  
+
   return (
     <div className="cart-item">
         <div>
           <div className="cart-item-img-container"><img src={item.image}></img></div>
           <div className="cart-item-name">{item.name}</div>
         </div>
-        <div className="cart-item-price">{item.price.toFixed(2)}</div>
+        <div className="cart-item-price">$ {item.price.toFixed(2)}</div>
         <div className="quantity-button">
           <button onClick = {item.quantity == 1 ? () => setIsPopupOpen(true) : () => decreaseQuantity(item)}>-</button>
           <div>{item.quantity}</div>
           <button onClick = {() => increaseQuantity(item)}>+</button>
         </div>
-        {isPopupOpen && <PopupCart onClose={() => removeFromCart(item.id)} cancel={() => setIsPopupOpen(false)} />}
+        {isPopupOpen && <PopupCart onClose={() => {removeFromCart(item.id); setIsPopupOpen(false);}} cancel={() => setIsPopupOpen(false)} />}
     </div>
   )
 }

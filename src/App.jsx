@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart}/>}></Route>
           <Route path="/about" element={<About/>}></Route>
-          <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>}></Route>
+          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} totalItems={totalItems}/>}></Route>
           <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}>
             <Route index element={<All />}></Route>
             <Route path="breakfast" element={<Breakfast />}></Route>

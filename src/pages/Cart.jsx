@@ -5,7 +5,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping
 import { NavLink } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 
-const Cart = ({cart, setCart}) => {
+const Cart = ({cart, setCart, totalItems}) => {
   const {isLoggedIn} = useContext(LogInContext);
   const totalPrice = cart.reduce((sum, item) => sum + item.quantity*item.price, 0).toFixed(2);
 
@@ -33,7 +33,12 @@ const Cart = ({cart, setCart}) => {
           </ul>
         </div>
         <div>
-          <p>{totalPrice}</p>
+          <h1>Order Summary</h1>
+          <div>
+            <p>Total ({totalItems}) {totalItems == 1 ? "item" : "items"}</p>
+            <p>$ {totalPrice}</p>
+          </div>
+          <button>Checkout</button>
         </div>
       </div>
       : emptyCart}
