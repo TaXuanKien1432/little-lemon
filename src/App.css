@@ -554,6 +554,7 @@ nav .active p {
     background-color: #F4CE14;
     font-size: 20pt;
     border: none;
+    cursor: pointer;
 }
 
 .login-form button:active {
@@ -1019,6 +1020,7 @@ nav .active p {
     font-size: 20pt;
     min-height: fit-content;
     border: none;
+    cursor: pointer;
 }
 
 .quantity-button button:first-child {
@@ -1041,6 +1043,52 @@ nav .active p {
     max-height: 80px;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.cart-checkout {
+    width: min(500px, 100%);
+    height: fit-content;
+    padding: 40px 20px;
+    background-color: rgb(244, 244, 244);
+    margin-top: 30px;
+}
+
+.flex-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-checkout h1 {
+    font-weight: normal;
+    font-size: 30pt;
+}
+
+.cart-checkout > div > p:first-child {
+    font-size: 20pt;
+}
+
+.cart-checkout > div > p:last-child {
+    font-size: 28pt;
+    color:#64a18c;
+}
+
+.cart-checkout button {
+    width: fit-content;
+    height: fit-content;
+    font-size: 20pt;
+    background-color: #F4CE14;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.cart-checkout button:hover {
+    transform: scale(1.05);
+}
+
+.cart-checkout button:active {
+    transform: scale(0.95);
 }
 
 @media screen and (max-width:1160px) {

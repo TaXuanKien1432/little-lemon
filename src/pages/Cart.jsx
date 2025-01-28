@@ -32,10 +32,10 @@ const Cart = ({cart, setCart, totalItems}) => {
             {cart.map(item => <li key={item.id}><CartItem item={item} setCart={setCart}/></li>)}
           </ul>
         </div>
-        <div>
+        <div className="cart-checkout">
           <h1>Order Summary</h1>
-          <div>
-            <p>Total ({totalItems}) {totalItems == 1 ? "item" : "items"}</p>
+          <div className="flex-price">
+            <p>Total ({totalItems} {totalItems == 1 ? "item" : "items"}):</p>
             <p>$ {totalPrice}</p>
           </div>
           <button>Checkout</button>
