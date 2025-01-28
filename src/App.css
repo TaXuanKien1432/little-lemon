@@ -1091,6 +1091,21 @@ nav .active p {
     transform: scale(0.95);
 }
 
+.food-not-found-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sad-icon {
+    width: 100px;
+    height: auto;
+    color: #545454;
+    margin: auto;
+}
+
 @media screen and (max-width:1160px) {
     .intro-section {
         padding: 40px 10%;

@@ -1,13 +1,18 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 import FoodCard from './FoodCard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceFrown } from '@fortawesome/free-regular-svg-icons';
 
 const All = () => {
   const { addToCart, products, searchedProducts, query } = useOutletContext();
   let displayContext;
   if (searchedProducts.length === 0 && query) {
     displayContext = (
-      <div className="foods-not-found">Foods not found</div>
+      <div className="food-not-found-container">
+        <FontAwesomeIcon icon={faFaceFrown} className="sad-icon" />
+        <div className="foods-not-found">Food not found</div>
+      </div>
     )
   } else if (searchedProducts.length === 0 && !query.trim()) {
     displayContext = (
