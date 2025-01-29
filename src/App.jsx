@@ -16,6 +16,7 @@ import Lunch from './components/Lunch.jsx'
 import Dinner from './components/Dinner.jsx'
 import Dessert from './components/Dessert.jsx'
 import Drink from './components/Drink.jsx'
+import Checkout from './pages/Checkout.jsx'
 
 export const LogInContext = createContext();
 
@@ -23,6 +24,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cart, setCart] = useState([]);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce((sum, item) => sum + item.quantity*item.price, 0).toFixed(2);
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find(item => item.id === product.id);
@@ -40,7 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart}/>}></Route>
           <Route path="/about" element={<About/>}></Route>
-          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} totalItems={totalItems}/>}></Route>
+          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} totalItems={totalItems} totalPrice={totalPrice} />}></Route>
           <Route path="/order-online" element={<OrderOnline addToCart={addToCart}/>}>
             <Route index element={<All />}></Route>
             <Route path="breakfast" element={<Breakfast />}></Route>
@@ -51,6 +53,7 @@ function App() {
           </Route>
           <Route path="/reservations" element={<Reservations/>}></Route>
           {isLoggedIn ? <Route path="/logout" element={<Logout />}></Route> : <Route path="/login" element={<Login/>}></Route>}
+          <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} totalItems={totalItems} totalPrice={totalPrice}/>}></Route>
         </Routes>
         <Footer></Footer>
       </LogInContext.Provider>

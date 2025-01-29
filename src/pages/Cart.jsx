@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { LogInContext } from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import CartItem from '../components/CartItem';
+import LoginPopup from '../components/LoginPopup';
 
-const Cart = ({cart, setCart, totalItems}) => {
+const Cart = ({cart, setCart, totalItems, totalPrice}) => {
   const {isLoggedIn} = useContext(LogInContext);
-  const totalPrice = cart.reduce((sum, item) => sum + item.quantity*item.price, 0).toFixed(2);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const emptyCart = (
     <div className="empty-cart">
@@ -16,6 +17,8 @@ const Cart = ({cart, setCart, totalItems}) => {
       <NavLink to="/order-online"><p>Order food now </p></NavLink>
     </div>
   )
+
+  const navigate = useNavigate();
   
   return (
     <div className="cart">
@@ -38,8 +41,9 @@ const Cart = ({cart, setCart, totalItems}) => {
             <p>Total ({totalItems} {totalItems == 1 ? "item" : "items"}):</p>
             <p>$ {totalPrice}</p>
           </div>
-          <button>Checkout</button>
+          <button onClick={isLoggedIn ? () => navigate("/checkout") : () => setIsPopupOpen(true)}>Checkout</button>
         </div>
+        {isPopupOpen && <LoginPopup cancel={() => setIsPopupOpen(false)} onClose={() => navigate("/login")} />}
       </div>
       : emptyCart}
     </div>

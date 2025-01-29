@@ -1083,6 +1083,10 @@ nav .active p {
     cursor: pointer;
 }
 
+.cart-checkout button a {
+    color: black;
+}
+
 .cart-checkout button:hover {
     transform: scale(1.05);
 }
@@ -1104,6 +1108,206 @@ nav .active p {
     height: auto;
     color: #545454;
     margin: auto;
+}
+
+.back-button {
+    display: flex;
+    font-size: 20pt;
+}
+
+.back-button > h4:first-child {
+    margin-right: 10px;
+}
+
+.back-button > h4 {
+    color: black;
+}
+
+.checkout-page {
+    padding: 40px 10%;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    gap: 20px;
+}
+
+.checkout, .other-fees, .total, .grandtotal {
+    width: 100%;
+    display: block;
+}
+
+.checkout-large-component {
+    width: 350px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.checkout-items {
+    width: 100%;
+    background-color: white;
+    color: rgb(74, 74, 74);
+    margin-bottom: 10px;
+    border-bottom: 0.2px gray solid;
+}
+
+.checkout-item {
+    display: grid;
+    grid-template-columns: 23px 180px 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 15pt;
+}
+
+.checkout-item-price {
+    justify-self: start;
+}
+
+.trash {
+    justify-self: end;
+    color: rgb(190, 190, 190);
+    width: 15px; 
+    height: auto;
+    margin-top: 5px;
+}
+
+.other-fees > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: rgb(74, 74, 74);
+    font-size: 15pt;
+}
+
+.other-fees {
+    margin-bottom: 15px;
+    border-bottom: 0.2px gray solid;
+}
+
+.total > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 15pt;
+    color: rgb(74, 74, 74);
+}
+
+.total {
+    margin-bottom: 15px;
+    border-bottom: 0.2px gray solid;
+}
+
+.grandtotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15pt;
+}
+
+.checkout-component > h3 {
+    font-size: 18pt;
+}
+
+.checkout {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    height: fit-content;
+    font-size: 15pt;
+}
+
+.ship, .card-number-container, .expiration-container, .cvv-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ship label {
+    color: rgb(74, 74, 74);
+}
+
+.checkout input {
+    border-radius: 7px;
+    padding: 2px;
+}
+
+#shippingAddress, #cardNumber, #expiration, #cvv {
+    font-size: 15pt;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.payment-information, .card-number, .expiration, .cvv {
+    color: rgb(74, 74, 74);
+}
+
+.checkout ul {
+    display: flex;
+    gap: 8px;
+}
+
+#shippingAddress {
+    width: min(400px, 100%);
+}
+
+#cardNumber {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.grid-card-container {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 130px 130px;
+    gap: 40px;
+    margin-bottom: 10px;
+}
+
+.back-text {
+    color: black;
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+    border: 0.2px gray solid;
+    border-radius: 5px;
+}
+
+.payment-button {
+    border: none;
+    padding: 10px;
+    font-size: 15pt;
+    border-radius: 5px;
+    color: white;
+    background-color: #495E57;
+    border: 0.2px #495E57 solid;
+}
+
+.back-text:active, .payment-button:active {
+    transform: scale(0.95);
+}
+
+.checkout ul > div {
+    padding: 5px;
+    padding-right: 8px;
+    width: 20px; height: 20px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: 0.2px gray solid;
+    box-sizing: content-box !important;
+}
+
+div.checkout-active {
+    border: 2px #495E57 solid !important;
+}
+
+.card-display {
+    width: 30px;
+    height: auto;
+    position: relative;
+    top: 6px;
+}
+
+.card-number-container {
+    margin-top: 10px;
 }
 
 @media screen and (max-width:1160px) {
@@ -1151,6 +1355,10 @@ nav .active p {
     }
 
     .cart {
+        padding: 40px 5%;
+    }
+
+    .checkout-page {
         padding: 40px 5%;
     }
 }
@@ -1271,6 +1479,10 @@ nav .active p {
     .quantity-button div {
         width: 20px;
     }
+
+    .checkout-page {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -1341,6 +1553,12 @@ nav .active p {
 @media screen and (max-width: 500px) {
     .booking-form {
         width: 350px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .card-display {
+        top: 0px;
     }
 }
 
