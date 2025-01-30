@@ -159,7 +159,7 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
                 </div>
             </div>
             <NavLink to="/cart" className="back-text">Back</NavLink>
-            <button className="payment-button">Confirm Payment</button>
+            <button className="payment-button">Confirm Payment ${(parseFloat(totalPrice) + parseFloat((totalPrice * 0.05).toFixed(2))).toFixed(2)}</button>
             {isCheckoutPopupOpen && <Popup message="Payment has been successfully processed. Thank you!" onClose={() => {setIsCheckoutPopupOpen(false); navigate("/");}} />}
         </form>   
         <div className="checkout-large-component">

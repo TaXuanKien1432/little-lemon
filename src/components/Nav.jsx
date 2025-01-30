@@ -14,7 +14,10 @@ const Nav = ({totalItems}) => {
         <div className="nav-section">
             <nav className="nav">
                 <img src={logo} alt="logo"></img>
-                <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="hamburger-button" onClick={handleClick} />
+                <div className="menu-button-container" onClick={handleClick}>
+                    <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} className="hamburger-button" />
+                    <div className={totalItems == 0 ? "total-items-menu-inactive" : "total-items-menu-active"}>{totalItems}</div>
+                </div>
                 <ul className={menuOpen ? "open" : ""}>
                     <li onClick={() => setMenuOpen(false)}>
                         <NavLink to="/"><p>Home</p></NavLink>

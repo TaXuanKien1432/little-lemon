@@ -69,29 +69,25 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newErrors = {};
+
+    Object.keys(values).forEach((name) => {
+      const errorMessage = validateField(name, values[name]);
+      newErrors[name] = errorMessage;
+    });
+    setErrors(newErrors);
+    const hasErrors = Object.values(newErrors).some((error) => error !== "");
+    if (hasErrors) return;
     setIsPopupOpen(true);
+    setErrors({
+      email: "",
+      password: "",
+    });
+    setValues({
+      email: "",
+      password: "",
+    });
   };
-
-  let popupContent;
-  if (validate()) {
-    popupContent = (
-      <Popup
-        message="Logged in successfully!"
-        onClose={() => {setIsPopupOpen(false);
-                        setIsLoggedIn(true);
-                        navigate('/');
-        }}
-      />
-    );
-  } else {
-    popupContent = (
-      <Popup
-        message="Wrong email or password. Please try again."
-        onClose={() => setIsPopupOpen(false)}
-      />
-    );
-  }
-
 
   return (
     <div className="login-section">
@@ -105,7 +101,13 @@ const Login = () => {
           {errors.password && <p className="error">{errors.password}</p>}
           <button type="submit">Submit</button>
         </form>
-        {isPopupOpen && popupContent}
+        {isPopupOpen && <Popup
+                        message="Logged in successfully!"
+                        onClose={() => {setIsPopupOpen(false);
+                                        setIsLoggedIn(true);
+                                        navigate('/');
+                                }}
+                        />}
       </div>
     </div>
   )
