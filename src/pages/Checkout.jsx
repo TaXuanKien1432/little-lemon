@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCcVisa, faCcMastercard } from '@fortawesome/free-brands-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import PopupCart from '../components/PopupCart'
+import Popup from '../components/Popup'
 
 const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
     const [checkoutDatas, setCheckoutDatas] = useState({
@@ -34,74 +35,86 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
     }
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isCheckoutPopupOpen, setIsCheckoutPopupOpen] = useState(false);
+    const navigate = useNavigate();
 
     const removeFromCart = (itemId) => {
         setCart(prevCart => prevCart.filter(item => item.id !== itemId));
     }
 
-    const handleChange = (e) => {
-        if (!e.target.value) {
-            setErrors(prevErrors => {
-                return {
-                    ...prevErrors,
-                    [e.target.name]: "Required",
-                }
-            })
+    const validateField = (fieldName, fieldValue) => {
+        if (!fieldValue) {
+            return "Required";
         }
-        setCheckoutDatas(prevDatas => {
-            if (e.target.name !== "cardNumber") {
-                return {
-                    ...prevDatas,
-                    [e.target.name]: e.target.value,
-                }
-            } else {
-                let input = e.target.value
-                input = input.replace(/\D/g, "");
-                if (input.length > 16) return prevDatas;
-                input = input.replace(/(.{4})/g, "$1 ").trim();
-                return {
-                    ...prevDatas,
-                    cardNumber: input,
-                }
+        if (fieldName === "cardNumber" && !/^\d{4} \d{4} \d{4} \d{4}$/.test(fieldValue)) {
+            return "Invalid card number";
+        }
+        if (fieldName === "expiration" && !/^(0[1-9]|1[0-2])\/\d{2}$/.test(fieldValue)) {
+            return "Invalid expiration date";
+        }
+        if (fieldName === "cvv" && !/^\d{3}$/.test(fieldValue)) {
+            return "Invalid CVV";
+        }
+        return "";
+    };
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        let formattedValue = value;
+        if (name === "cardNumber") {
+            formattedValue = value.replace(/\D/g, "");
+            if (formattedValue.length > 16) return;
+            formattedValue = formattedValue.replace(/(.{4})/g, "$1 ").trim();
+        } else if (name === "expiration") {
+            formattedValue = value.replace(/\D/g, "");
+            if (formattedValue.length > 4) return;
+            if (formattedValue.length > 2) {
+                formattedValue = formattedValue.replace(/(\d{2})(\d{1,2})/, "$1/$2");
             }
-        })
-    }
+        } else if (name === "cvv") {
+            formattedValue = value.replace(/\D/g, "");
+            if (formattedValue.length > 3) return;
+        }
+
+        setCheckoutDatas((prevDatas) => ({
+            ...prevDatas,
+            [name]: formattedValue,
+        }));
+
+        const errorMessage = validateField(name, formattedValue);
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: errorMessage,
+        }));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!checkoutDatas.shippingAddress) {
-            setErrors({
-                ...errors,
-                shippingAddress: "Required"
-            })
-        }
-        if (!checkoutDatas.cardType) {
-            setErrors({
-                ...errors,
-                cardType: "Required"
-            })
-        }
-        if (!checkoutDatas.cardNumber) {
-            setErrors({
-                ...errors,
-                cardNumber: "Required"
-            })
-        }
-        if (!checkoutDatas.expiration) {
-            setErrors({
-                ...errors,
-                expiration: "Required"
-            })
-        }
-        if (!checkoutDatas.cvv) {
-            setErrors({
-                ...errors,
-                cvv: "Required"
-            })
-        }
-    }
+        const newErrors = {};
 
-    const taxFees = parseFloat((totalPrice * 0.05).toFixed(2))
+        Object.keys(checkoutDatas).forEach((name) => {
+            const errorMessage = validateField(name, checkoutDatas[name]);
+            newErrors[name] = errorMessage;
+        });
+        setErrors(newErrors);
+        const hasErrors = Object.values(newErrors).some((error) => error !== "");
+        if (hasErrors) return;
+        setIsCheckoutPopupOpen(true);
+        setCheckoutDatas({
+            shippingAddress: "",
+            cardType: "",
+            cardNumber: "",
+            expiration: "",
+            cvv: "",
+        });
+        setErrors({
+            shippingAddress: "",
+            cardType: "",
+            cardNumber: "",
+            expiration: "",
+            cvv: "",
+        });
+    }
 
     return (
     <div className="checkout-page">
@@ -117,10 +130,10 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
             </div>
             <p className="payment-information">Payment information <span>*</span></p>
             <ul>
-                <div className={checkoutDatas.cardType==="visa" ? "checkout-active" : ""}  onClick={() => setCheckoutDatas(prevDatas => {return {...prevDatas, cardType: "visa"}})} >
+                <div className={checkoutDatas.cardType==="visa" ? "checkout-active" : ""}  onClick={() => {setCheckoutDatas(prevDatas => {return {...prevDatas, cardType: "visa"}}); setErrors(prevErrors => {return {...prevErrors, cardType: ""}})}} >
                     <li><FontAwesomeIcon icon={faCcVisa} /></li>
                 </div>
-                <div className={checkoutDatas.cardType==="mastercard" ? "checkout-active" : ""} onClick={() => setCheckoutDatas(prevDatas => {return {...prevDatas, cardType: "mastercard"}})}>
+                <div className={checkoutDatas.cardType==="mastercard" ? "checkout-active" : ""} onClick={() => {setCheckoutDatas(prevDatas => {return {...prevDatas, cardType: "mastercard"}}); setErrors(prevErrors => {return {...prevErrors, cardType: ""}})}}>
                     <li><FontAwesomeIcon icon={faCcMastercard} /></li>
                 </div>
             </ul>
@@ -141,12 +154,13 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
                 </div>
                 <div className="cvv-container">
                     <label htmlFor="cvv" className="cvv">CVV <span>*</span></label>
-                    <input value={checkoutDatas.cvv} placeholder="CVV" id="cvv" name="cvv" onChange={handleChange} onBlur={handleBlur}></input>
+                    <input value={checkoutDatas.cvv} placeholder="123" id="cvv" name="cvv" onChange={handleChange} onBlur={handleBlur}></input>
                     <p className="errors">{errors.cvv}</p>
                 </div>
             </div>
             <NavLink to="/cart" className="back-text">Back</NavLink>
             <button className="payment-button">Confirm Payment</button>
+            {isCheckoutPopupOpen && <Popup message="Payment has been successfully processed. Thank you!" onClose={() => {setIsCheckoutPopupOpen(false); navigate("/");}} />}
         </form>   
         <div className="checkout-large-component">
             <div className="checkout-component">
@@ -179,12 +193,12 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
                 </div>
                 <div className="tax">
                     <p>Tax</p>
-                    <p>${taxFees}</p>
+                    <p>${(totalPrice * 0.05).toFixed(2)}</p>
                 </div>
             </div>
             <div className="grandtotal">
                 <h3>Order Total</h3>
-                <h3>${(parseFloat(totalPrice) + taxFees).toFixed(2)}</h3>
+                <h3>${(parseFloat(totalPrice) + parseFloat((totalPrice * 0.05).toFixed(2))).toFixed(2)}</h3>
             </div>
         </div>
     </div>
