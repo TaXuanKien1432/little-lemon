@@ -1139,6 +1139,7 @@ nav .active p {
 .back-button {
     display: flex;
     font-size: 20pt;
+    width: fit-content;
 }
 
 .back-button > h4:first-child {
