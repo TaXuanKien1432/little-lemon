@@ -521,7 +521,7 @@ nav .active p {
 }
 
 .error {
-    font-size: 15pt;
+    font-size: 15pt !important;
     color: red;
 }
 
@@ -1234,6 +1234,8 @@ nav .active p {
     font-size: 15pt;
     margin-top: 5px;
     margin-bottom: 10px;
+    border: 0.3px gray solid;
+    outline: none;
 }
 
 .payment-information, .card-number, .expiration, .cvv {
@@ -1267,7 +1269,7 @@ nav .active p {
     display: inline-block;
     padding: 10px;
     margin-right: 10px;
-    border: 0.2px gray solid;
+    border: 0.3px gray solid;
     border-radius: 5px;
 }
 
@@ -1296,7 +1298,7 @@ nav .active p {
 }
 
 div.checkout-active {
-    border: 2px #495E57 solid !important;
+    border: 3px #60a08b solid !important;
 }
 
 .card-display {
@@ -1308,6 +1310,19 @@ div.checkout-active {
 
 .card-number-container {
     margin-top: 10px;
+}
+
+#shippingAddress:focus, #cardNumber:focus, #expiration:focus, #cvv:focus {
+    border: 3px #60a08b solid;
+}
+
+.errors, .checkout-page span {
+    font-size: 12pt;
+    color: red;
+}
+
+.checkout-page label {
+    width: fit-content;
 }
 
 @media screen and (max-width:1160px) {

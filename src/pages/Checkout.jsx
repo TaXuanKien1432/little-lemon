@@ -8,11 +8,31 @@ import PopupCart from '../components/PopupCart'
 const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
     const [checkoutDatas, setCheckoutDatas] = useState({
         shippingAddress: "",
-        cardType: "visa",
+        cardType: "",
         cardNumber: "",
         expiration: "",
         cvv: "",
     })
+
+    const [errors, setErrors] = useState({
+        shippingAddress: "",
+        cardType: "",
+        cardNumber: "",
+        expiration: "",
+        cvv: "",
+    })
+
+    const handleBlur = (e) => {
+        if (!e.target.value) {
+            setErrors(prevErrors => {
+                return {
+                    ...prevErrors,
+                    [e.target.name]: "Required",
+                }
+            })
+        }
+    }
+
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const removeFromCart = (itemId) => {
@@ -20,6 +40,14 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
     }
 
     const handleChange = (e) => {
+        if (!e.target.value) {
+            setErrors(prevErrors => {
+                return {
+                    ...prevErrors,
+                    [e.target.name]: "Required",
+                }
+            })
+        }
         setCheckoutDatas(prevDatas => {
             if (e.target.name !== "cardNumber") {
                 return {
@@ -39,43 +67,82 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!checkoutDatas.shippingAddress) {
+            setErrors({
+                ...errors,
+                shippingAddress: "Required"
+            })
+        }
+        if (!checkoutDatas.cardType) {
+            setErrors({
+                ...errors,
+                cardType: "Required"
+            })
+        }
+        if (!checkoutDatas.cardNumber) {
+            setErrors({
+                ...errors,
+                cardNumber: "Required"
+            })
+        }
+        if (!checkoutDatas.expiration) {
+            setErrors({
+                ...errors,
+                expiration: "Required"
+            })
+        }
+        if (!checkoutDatas.cvv) {
+            setErrors({
+                ...errors,
+                cvv: "Required"
+            })
+        }
+    }
+
     const taxFees = parseFloat((totalPrice * 0.05).toFixed(2))
 
     return (
     <div className="checkout-page">
-        <form className="checkout">
+        <form className="checkout" onSubmit={handleSubmit}>
             <NavLink to="/cart" className="back-button">
                 <h4>{"<"}</h4>
                 <h4>Back</h4>
             </NavLink>
             <div className="ship">
-                <label htmlFor="shippingAddress">Shipping address</label>
-                <input type="text" value={checkoutDatas.shippingAddress} id="shippingAddress" name="shippingAddress" onChange={handleChange}></input>
+                <label htmlFor="shippingAddress">Shipping address <span>*</span></label>
+                <input type="text" value={checkoutDatas.shippingAddress} id="shippingAddress" name="shippingAddress" onChange={handleChange} onBlur={handleBlur}></input>
+                <p className="errors">{errors.shippingAddress}</p>
             </div>
-            <p className="payment-information">Payment information</p>
+            <p className="payment-information">Payment information <span>*</span></p>
             <ul>
                 <div className={checkoutDatas.cardType==="visa" ? "checkout-active" : ""}  onClick={() => setCheckoutDatas(prevDatas => {return {...prevDatas, cardType: "visa"}})} >
                     <li><FontAwesomeIcon icon={faCcVisa} /></li>
                 </div>
                 <div className={checkoutDatas.cardType==="mastercard" ? "checkout-active" : ""} onClick={() => setCheckoutDatas(prevDatas => {return {...prevDatas, cardType: "mastercard"}})}>
-                    <li  ><FontAwesomeIcon icon={faCcMastercard} /></li>
+                    <li><FontAwesomeIcon icon={faCcMastercard} /></li>
                 </div>
             </ul>
+            <p className="errors">{errors.cardType}</p>
             <div className="card-number-container">
-                <label htmlFor="cardNumber" className="card-number">Card number</label>
+                <label htmlFor="cardNumber" className="card-number">Card number <span>*</span></label>
                 <div>
-                <input placeholder='1234 1234 1234 1234' value={checkoutDatas.cardNumber} id="cardNumber" name="cardNumber" onChange={handleChange}></input>
+                <input placeholder='1234 1234 1234 1234' value={checkoutDatas.cardNumber} id="cardNumber" name="cardNumber" onChange={handleChange} onBlur={handleBlur}></input>
                 {checkoutDatas.cardType === "visa" ? <FontAwesomeIcon className="card-display" icon={faCcVisa} /> : checkoutDatas.cardType === "mastercard" ? <FontAwesomeIcon className="card-display" icon={faCcMastercard} /> : <></>}
+                <p className="errors">{errors.cardNumber}</p>
                 </div>
             </div>
             <div className="grid-card-container">
                 <div className="expiration-container">
-                    <label htmlFor="expiration" className="expiration">Expiration</label>
-                    <input value={checkoutDatas.expiration} placeholder="MM/YY" id="expiration" name="expiration" onChange={handleChange}></input>
+                    <label htmlFor="expiration" className="expiration">Expiration <span>*</span></label>
+                    <input value={checkoutDatas.expiration} placeholder="MM/YY" id="expiration" name="expiration" onChange={handleChange} onBlur={handleBlur}></input>
+                    <p className="errors">{errors.expiration}</p>
                 </div>
                 <div className="cvv-container">
-                    <label htmlFor="cvv" className="cvv">CVV</label>
-                    <input value={checkoutDatas.cvv} placeholder="CVV" id="cvv" name="cvv" onChange={handleChange}></input>
+                    <label htmlFor="cvv" className="cvv">CVV <span>*</span></label>
+                    <input value={checkoutDatas.cvv} placeholder="CVV" id="cvv" name="cvv" onChange={handleChange} onBlur={handleBlur}></input>
+                    <p className="errors">{errors.cvv}</p>
                 </div>
             </div>
             <NavLink to="/cart" className="back-text">Back</NavLink>
