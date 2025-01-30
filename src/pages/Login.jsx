@@ -62,6 +62,11 @@ const Login = () => {
     setErrors({...errors, [e.target.name]: fieldError});
   };
 
+  const handleBlur = (e) => {
+    const fieldError = validateField(e.target.name, e.target.value);
+    setErrors({...errors, [e.target.name]: fieldError});
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsPopupOpen(true);
@@ -93,8 +98,8 @@ const Login = () => {
       <div className="login-component">
         <h1 className="login-title">Login</h1>
         <p className="login-subtitle">Please enter your email and password!</p>
-        <form className="login-form" onSubmit={handleSubmit}>
-          <FormInput id="email" label="Email" name="email" type="text" placeholder="Email" value={values.email} onChange={handleChange} />
+        <form className="login-form" onSubmit={handleSubmit} onBlur={handleBlur}>
+          <FormInput id="email" label="Email" name="email" type="text" placeholder="Email" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
           {errors.email && <p className="error">{errors.email}</p>}
           <FormInput id="password" label="Password" name="password" type="password" placeholder="Password" value={values.password} onChange={handleChange} />
           {errors.password && <p className="error">{errors.password}</p>}

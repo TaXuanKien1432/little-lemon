@@ -63,6 +63,11 @@ const BookingForm = () => {
         setErrors({...errors, [e.target.name]: fieldError});
     }
 
+    const handleBlur = (e) => {
+        const fieldError = validateField(e.target.name, e.target.value);
+        setErrors({...errors, [e.target.name]: fieldError});
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setBookingValues({
@@ -79,12 +84,12 @@ const BookingForm = () => {
     <form className="booking-form" onSubmit={handleSubmit}>
         <div>
             <label htmlFor="res-date">Choose date <p className="asterisk">*</p></label>
-            <input type="date" id="res-date" onChange={handleChange} name="date" value={bookingValues.date} min={today}></input>
+            <input type="date" id="res-date" onChange={handleChange} onBlur={handleBlur} name="date" value={bookingValues.date} min={today}></input>
             {errors.date && <p className="error">{errors.date}</p>}
         </div>
         <div>
             <label htmlFor="res-time">Choose time <p className="asterisk">*</p></label>
-            <select id="res-time" onChange={handleChange} name="time" value={bookingValues.time}>
+            <select id="res-time" onChange={handleChange} onBlur={handleBlur} name="time" value={bookingValues.time}>
                 <option value="">Please Select</option>
                 <option>17:00</option>
                 <option>18:00</option>
@@ -97,7 +102,7 @@ const BookingForm = () => {
         </div>
         <div>
             <label htmlFor="guests">Number of guests <p className="asterisk">*</p></label>
-            <select id="guests" onChange={handleChange} name="guests" value={bookingValues.guests}>
+            <select id="guests" onChange={handleChange} onBlur={handleBlur} name="guests" value={bookingValues.guests}>
                 <option value="">Please Select</option>
                 <option>1</option>
                 <option>2</option>
