@@ -1,6 +1,6 @@
 import React from 'react'
 import restaurantFood from '../images/restaurantfood.jpg'
-import croppedRestaurantFood from '../images/cropped-Restaurantfood.jpg'
+import croppedRestaurantFood from '../images/cropped-restaurantfood.jpg'
 import { Link } from 'react-router-dom'
 const IntroComponent = () => {
   return (
