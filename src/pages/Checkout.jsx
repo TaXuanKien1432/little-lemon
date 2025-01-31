@@ -100,6 +100,7 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
         const hasErrors = Object.values(newErrors).some((error) => error !== "");
         if (hasErrors) return;
         setIsCheckoutPopupOpen(true);
+        setCart([]);
         setCheckoutDatas({
             shippingAddress: "",
             cardType: "",
@@ -160,7 +161,7 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
             </div>
             <NavLink to="/cart" className="back-text">Back</NavLink>
             <button className="payment-button">Confirm Payment ${(parseFloat(totalPrice) + parseFloat((totalPrice * 0.05).toFixed(2))).toFixed(2)}</button>
-            {isCheckoutPopupOpen && <Popup message="Payment has been successfully processed. Thank you!" onClose={() => {setIsCheckoutPopupOpen(false); navigate("/");}} />}
+            {isCheckoutPopupOpen && <Popup message="Payment has been successfully processed. Thank you!" onClose={() => {setIsCheckoutPopupOpen(false); navigate("/order-online");}} />}
         </form>   
         <div className="checkout-large-component">
             <div className="checkout-component">

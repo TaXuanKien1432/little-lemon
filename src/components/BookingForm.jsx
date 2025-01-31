@@ -175,7 +175,7 @@ const BookingForm = () => {
             </select>
         </div>
         <div>
-            <label htmlFor='request'>Special Requests</label>
+            <label htmlFor='requests'>Special Requests</label>
             <input id='requests' name="specialRequests" onChange={handleChange} value={bookingValues.specialRequests}></input>
         </div>
         <button type="submit" aria-label="On Click" disabled={!validate()}>Make your reservation</button>
