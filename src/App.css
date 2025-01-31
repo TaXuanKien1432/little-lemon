@@ -700,6 +700,7 @@ nav .active p {
 .reservations h1 {
     color: #F4CE14;
     font-size: 50pt;
+    font-weight: normal;
 }
 
 .booking-form {

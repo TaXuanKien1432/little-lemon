@@ -8,7 +8,7 @@ import { LogInContext } from '../App'
 
 const Nav = ({totalItems}) => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [scrollDirection, setScrollDirection] = useState("down");
+    const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const {isLoggedIn} = useContext(LogInContext);
 
@@ -18,9 +18,9 @@ const Nav = ({totalItems}) => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             if (currentScrollY > lastScrollY && currentScrollY > 50) {
-                setScrollDirection("down");
+                setShowNavbar(false);
             } else {
-                setScrollDirection("up");
+                setShowNavbar(true);
             }
             setLastScrollY(currentScrollY);
         };
@@ -31,7 +31,7 @@ const Nav = ({totalItems}) => {
         };
     }, [lastScrollY]);
     return (
-        <div className={`nav-section ${scrollDirection === "down" ? "hidden" : "visible"}`}>
+        <div className={`nav-section ${showNavbar ? "visible" : "hidden"}`}>
             <nav className="nav">
                 <img src={logo} alt="logo"></img>
                 <div className="menu-button-container" onClick={handleClick}>
