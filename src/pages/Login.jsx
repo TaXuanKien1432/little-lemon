@@ -105,7 +105,7 @@ const Login = () => {
                         message="Logged in successfully!"
                         onClose={() => {setIsPopupOpen(false);
                                         setIsLoggedIn(true);
-                                        navigate('/');
+                                        navigate('/cart');
                                 }}
                         />}
       </div>
