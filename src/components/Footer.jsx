@@ -33,15 +33,15 @@ const Footer = () => {
             <h5 className="footerheader">Contact</h5>
             <div className="smallsections">
                 <p>Address:</p>
-                <p>123 Town Street, Chicago</p>
+                <p>21 Lien Ying Chow Drive, Singapore</p>
             </div>
             <div className="smallsections">
                 <p>Phone:</p>
-                <p>+00 123 456 789</p>
+                <p>+6586175073</p>
             </div>
             <div className="smallsections">
                 <p>Email:</p>
-                <p>little@lemon.com</p>
+                <p>kienkonvip@gmail.com</p>
             </div>
         </div>
         <div className="footersection">
