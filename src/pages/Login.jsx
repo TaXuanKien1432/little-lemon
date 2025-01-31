@@ -90,7 +90,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-section">
+    <div className="login-section main-content">
       <div className="login-component">
         <h1 className="login-title">Login</h1>
         <p className="login-subtitle">Please enter your email and password!</p>

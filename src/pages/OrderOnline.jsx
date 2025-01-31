@@ -125,7 +125,7 @@ const OrderOnline = ({addToCart}) => {
   }
 
   return (
-    <div className="order-online-container">
+    <div className="order-online-container main-content">
       <p>Menu</p>
       <form>
         <input onChange={(e) => handleSearch(e)} placeholder='Search...'></input>

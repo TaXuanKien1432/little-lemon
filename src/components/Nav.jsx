@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import logo from '../images/Logo .svg'
 import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,10 +8,30 @@ import { LogInContext } from '../App'
 
 const Nav = ({totalItems}) => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const handleClick = () => setMenuOpen(!menuOpen);
+    const [scrollDirection, setScrollDirection] = useState("down");
+    const [lastScrollY, setLastScrollY] = useState(0);
     const {isLoggedIn} = useContext(LogInContext);
+
+    const handleClick = () => setMenuOpen(!menuOpen);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                setScrollDirection("down");
+            } else {
+                setScrollDirection("up");
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [lastScrollY]);
     return (
-        <div className="nav-section">
+        <div className={`nav-section ${scrollDirection === "down" ? "hidden" : "visible"}`}>
             <nav className="nav">
                 <img src={logo} alt="logo"></img>
                 <div className="menu-button-container" onClick={handleClick}>

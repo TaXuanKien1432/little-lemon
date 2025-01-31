@@ -21,7 +21,7 @@ const Cart = ({cart, setCart, totalItems, totalPrice}) => {
   const navigate = useNavigate();
   
   return (
-    <div className="cart">
+    <div className="cart main-content">
       {cart.length > 0 ?
       <div className="full-cart">
         <p className="full-cart-title">Your Cart</p>

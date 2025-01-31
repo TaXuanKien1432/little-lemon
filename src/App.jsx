@@ -17,6 +17,7 @@ import Dinner from './components/Dinner.jsx'
 import Dessert from './components/Dessert.jsx'
 import Drink from './components/Drink.jsx'
 import Checkout from './pages/Checkout.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 export const LogInContext = createContext();
 
@@ -38,6 +39,7 @@ function App() {
   return (
     <>
       <LogInContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
+        <ScrollToTop />
         <Nav totalItems={totalItems}></Nav>
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart}/>}></Route>

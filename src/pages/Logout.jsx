@@ -12,7 +12,7 @@ const Logout = () => {
         setIsPopupOpen(true);
     }
     return (
-    <div className="logout-section">
+    <div className="logout-section main-content">
         <img src={lemonLogo} alt="user icon"></img>
         <button className="logout-button" onClick={handleLogout}>Log Out</button>
         {isPopupOpen && <Popup message= "Logged out successfully!" onClose={() => {setIsPopupOpen(false); setIsLoggedIn(false); navigate('/');}} />}

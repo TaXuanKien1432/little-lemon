@@ -118,7 +118,7 @@ const Checkout = ({cart, totalItems, totalPrice, setCart}) => {
     }
 
     return (
-    <div className="checkout-page">
+    <div className="checkout-page main-content">
         <form className="checkout" onSubmit={handleSubmit}>
             <NavLink to="/cart" className="back-button">
                 <h4>{"<"}</h4>

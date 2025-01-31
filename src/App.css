@@ -11,6 +11,23 @@
 .nav-section {
     height: 60.8px;
     width: 100%;
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.main-content {
+    margin-top: 60.8px;
+}
+
+.nav-section.hidden {
+    transform: translateY(-100%);
+}
+
+.nav-section.visible {
+    transform: translateY(0);
 }
 
 .nav {
@@ -24,7 +41,6 @@
     align-items: center;
     border-bottom: 1px rgb(175, 175, 175) solid;
     position: relative;
-    z-index: 10000;
 }
 
 .nav ul {

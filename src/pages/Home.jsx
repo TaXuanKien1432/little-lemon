@@ -6,7 +6,7 @@ import AboutComponent from '../components/AboutComponent'
 
 const Home = ({addToCart}) => {
   return (
-    <div className="page home">
+    <div className="main-content">
       <IntroComponent />
       <Specials addToCart={addToCart}/>
       <Testimonials />
