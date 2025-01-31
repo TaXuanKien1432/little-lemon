@@ -15,6 +15,14 @@ const Nav = ({totalItems}) => {
     const handleClick = () => setMenuOpen(!menuOpen);
 
     useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [menuOpen]);
+    
+    useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             if (currentScrollY > lastScrollY && currentScrollY > 50) {
