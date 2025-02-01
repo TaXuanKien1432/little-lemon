@@ -176,7 +176,7 @@ const BookingForm = () => {
         </div>
         <div>
             <label htmlFor='requests'>Special Requests</label>
-            <input id='requests' name="specialRequests" onChange={handleChange} value={bookingValues.specialRequests}></input>
+            <textarea id='requests' name="specialRequests" onChange={handleChange} value={bookingValues.specialRequests}></textarea>
         </div>
         <button type="submit" aria-label="On Click" disabled={!validate()}>Make your reservation</button>
         {isPopupOpen && <Popup message={"You have successfully made a table reservation!"} onClose={() => setIsPopupOpen(false)}/>}
