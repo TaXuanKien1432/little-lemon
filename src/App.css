@@ -1301,6 +1301,7 @@ nav .active p {
 .checkout ul {
     display: flex;
     gap: 8px;
+    margin-bottom: 10px;
 }
 
 #shippingAddress {
