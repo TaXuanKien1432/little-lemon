@@ -10,12 +10,12 @@ Features:
 
 Getting Started:
 1. Clone the Repository:
-   git clone https://github.com/TaXuanKien1432/little-lemon.git
+git clone https://github.com/TaXuanKien1432/little-lemon.git
 2. Install Dependencies:
-   cd little-lemon
-   npm install
+cd little-lemon
+npm install
 3. Run the Project:
-   npm run dev
+npm run dev
 
 This will launch the app in development mode on http://localhost:5173/ (default Vite port).
 
