@@ -1,8 +1,23 @@
-# React + Vite
+Little Lemon is a fully responsive e-commerce web application built with React JS. This project allows users to browse a selection of food items, make table reservations, add items to a cart, and complete purchases with a smooth checkout process.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features:
+- Dynamic Navbar – Appears when scrolling up and disappears when scrolling down for better user experience.
+- Search Bar – Enables users to search for food items in real-time.
+- Interactive Cart – Users can add, remove, and adjust item quantities with live price updates.
+- Seamless Checkout – Includes input validation and dynamic formatting for an effortless purchasing experience.
+- Table Reservations – Users can conveniently book a table with real-time input validation.
+- Fully Responsive Design – Ensures a smooth experience across all devices.
 
-Currently, two official plugins are available:
+Getting Started:
+1. Clone the Repository:
+   git clone https://github.com/TaXuanKien1432/little-lemon.git
+2. Install Dependencies:
+   cd little-lemon
+   npm install
+3. Run the Project
+   npm run dev
+This will launch the app in development mode on http://localhost:5173/ (default Vite port).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If you need help, please contact:
+- email: kienkonvip@gmail.com
+- phone number: (+65)86175073
