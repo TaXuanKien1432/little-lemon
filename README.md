@@ -14,8 +14,9 @@ Getting Started:
 2. Install Dependencies:
    cd little-lemon
    npm install
-3. Run the Project
+3. Run the Project:
    npm run dev
+
 This will launch the app in development mode on http://localhost:5173/ (default Vite port).
 
 If you need help, please contact:
