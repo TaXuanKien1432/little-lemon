@@ -572,7 +572,8 @@ nav .active p {
     flex-direction: column;
     justify-content:start;
     width: 100%;
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .form-input label {
@@ -1288,8 +1289,7 @@ nav .active p {
 
 #shippingAddress, #cardNumber, #expiration, #cvv {
     font-size: 15pt;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin: 5px 0;
     border: 0.3px gray solid;
     outline: none;
 }
@@ -1301,7 +1301,6 @@ nav .active p {
 .checkout ul {
     display: flex;
     gap: 8px;
-    margin-bottom: 10px;
 }
 
 #shippingAddress {
