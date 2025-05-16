@@ -1,6 +1,6 @@
-Little Lemon is a fully responsive e-commerce web application built with React JS. This project allows users to browse a selection of food items, make table reservations, add items to a cart, and complete purchases with a smooth checkout process.
+# Little Lemon is a fully responsive e-commerce web application built with React JS. This project allows users to browse a selection of food items, make table reservations, add items to a cart, and complete purchases with a smooth checkout process.
 
-Features:
+# Features:
 - Dynamic Navbar – Appears when scrolling up and disappears when scrolling down for better user experience.
 - Search Bar – Enables users to search for food items in real-time.
 - Interactive Cart – Users can add, remove, and adjust item quantities with live price updates.
@@ -8,13 +8,13 @@ Features:
 - Table Reservations – Users can conveniently book a table with real-time input validation.
 - Fully Responsive Design – Ensures a smooth experience across all devices.
 
-Getting Started:
-1. Clone the Repository:
+# Getting Started:
+## Clone the Repository:
 - git clone https://github.com/TaXuanKien1432/little-lemon.git
-2. Install Dependencies:
+## Install Dependencies:
 - cd little-lemon
 - npm install
-3. Run the Project:
+## Run the Project:
 - npm run dev
 
 This will launch the app in development mode on http://localhost:5173/ (default Vite port).
